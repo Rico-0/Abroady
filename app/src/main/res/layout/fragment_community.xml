@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/community_root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/community_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginTop="@dimen/margin20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="로그아웃" />
+
+            <TextView
+                android:id="@+id/community_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin20"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:text="@string/community"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen26" />
+
+            <ImageView
+                android:id="@+id/community_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/margin5"
+                android:layout_marginRight="@dimen/margin20"
+                android:layout_toLeftOf="@id/community_notification_button"
+                android:src="@drawable/icon_search" />
+
+            <ImageView
+                android:id="@+id/community_notification_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin20"
+                android:src="@drawable/icon_notification" />
+
+            <TextView
+                android:id="@+id/hr_1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin1"
+                android:layout_marginTop="@dimen/margin5"
+                android:textColor="@color/sliver"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/community_text" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@+id/community_toolbar_layout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/my_party_hot_button_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin20"
+                    android:layout_marginTop="@dimen/margin10"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/my_party_button"
+                        android:layout_width="@dimen/margin70"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/tap_background_colored"
+                        android:clickable="true"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/my_party"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen12" />
+
+                    <TextView
+                        android:id="@+id/hot_party_button"
+                        android:layout_width="@dimen/margin40"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin10"
+                        android:background="@drawable/tap_background_default"
+                        android:clickable="true"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/hot"
+                        android:textColor="@color/sliver"
+                        android:textSize="@dimen/dimen12" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/party_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin20"
+                    app:layout_constraintStart_toStartOf="@+id/my_party_hot_button_layout"
+                    app:layout_constraintTop_toBottomOf="@+id/my_party_hot_button_layout"
+                    tools:listitem="@layout/item_party" />
+
+                <TextView
+                    android:id="@+id/hr_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin10"
+                    android:layout_marginTop="@dimen/margin15"
+                    android:background="@color/hr_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/party_list" />
+
+                <RelativeLayout
+                    android:id="@+id/see_boards_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hr_2">
+
+                    <TextView
+                        android:id="@+id/see_boards"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/see_boards"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen18" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin10"
+                        android:src="@drawable/go_next_icon" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/hr_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin10"
+                    android:background="@color/hr_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/see_boards_layout" />
+
+                <LinearLayout
+                    android:id="@+id/now_trending_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hr_3">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/now_trending"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/dimen18" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/now_trending_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin20"
+                        tools:listitem="@layout/item_now_trending" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/hr_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin10"
+                    android:layout_marginTop="@dimen/margin15"
+                    android:background="@color/hr_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/now_trending_layout" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hot_board_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hr_4">
+
+                    <RelativeLayout
+                        android:id="@+id/hot_board_toolbar_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:includeFontPadding="false"
+                            android:text="@string/hot_board"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/dimen18" />
+
+                        <RelativeLayout
+                            android:id="@+id/hot_board_more_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true">
+
+                            <TextView
+                                android:id="@+id/hot_board_more_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/margin5"
+                                android:layout_toLeftOf="@+id/hot_board_more_icon"
+                                android:fontFamily="@font/notosanskr_regular"
+                                android:includeFontPadding="false"
+                                android:text="@string/more"
+                                android:textColor="@color/navy_blue"
+                                android:textSize="@dimen/dimen12" />
+
+                            <ImageView
+                                android:id="@+id/hot_board_more_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/icon_more" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/hot_board_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin15"
+                        android:maxLength="3"
+                        app:layout_constrainedHeight="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/hot_board_toolbar_layout"
+                        tools:listitem="@layout/item_hot_board" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/hr_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin10"
+                    android:layout_marginTop="@dimen/margin15"
+                    android:background="@color/hr_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hot_board_layout" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/hr_5"
+                    android:padding="@dimen/margin20">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/one_post_per_board_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin5"
+                        app:layout_constrainedHeight="true"
+                        android:paddingBottom="@dimen/margin150"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:listitem="@layout/item_one_post_per_board" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/community_write_post_button"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginBottom="@dimen/margin80"
+            android:backgroundTint="@color/navy_blue"
+            android:foregroundGravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_write"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

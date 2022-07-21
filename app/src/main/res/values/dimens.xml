@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin1">1dp</dimen>
+    <dimen name="margin2">2dp</dimen>
+    <dimen name="margin3">3dp</dimen>
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="margin5">5dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin16">16dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin24">24dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="margin40">40dp</dimen>
+    <dimen name="marginTop_sign_in">41dp</dimen>
+    <dimen name="marginTop_close_button">44dp</dimen>
+    <dimen name="margin45">45dp</dimen>
+    <dimen name="margin50">50dp</dimen>
+    <dimen name="margin70">70dp</dimen>
+    <dimen name="margin80">80dp</dimen>
+    <dimen name="margin100">100dp</dimen>
+    <dimen name="marginTop_sign_up">115dp</dimen>
+    <dimen name="margin130">130dp</dimen>
+    <dimen name="margin150">150dp</dimen>
+    <dimen name="margin200">200dp</dimen>
+    <dimen name="party_item_width">220dp</dimen>
+    <dimen name="margin270">270dp</dimen>
+    <dimen name="margin300">300dp</dimen>
+    <dimen name="margin440">440dp</dimen>
+
+    <dimen name="dimen10">10sp</dimen>
+    <dimen name="dimen12">12sp</dimen>
+    <dimen name="dimen13">13sp</dimen>
+    <dimen name="dimen15">15sp</dimen>
+    <dimen name="dimen16">16sp</dimen>
+    <dimen name="dimen18">18sp</dimen>
+    <dimen name="dimen20">20sp</dimen>
+    <dimen name="dimen22">22sp</dimen>
+    <dimen name="dimen26">26sp</dimen>
+    <dimen name="dimen30">30sp</dimen>
+    <dimen name="dimen50">50sp</dimen>
+
+    <dimen name="bottom_icon_size">40dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="default_padding_small">8dp</dimen>
+    <dimen name="default_padding_large">24dp</dimen>
+    <dimen name="default_padding_xlarge">40dp</dimen>
+
+    <dimen name="tool_bar_height">56dp</dimen>
+    <dimen name="default_elevation">8dp</dimen>
+    <dimen name="toolbar_elevation">0dp</dimen>
+    <dimen name="default_radius">3dp</dimen>
+
+    <dimen name="btn_padding_left_right">15dp</dimen>
+    <dimen name="btn_padding_top_bottom">10dp</dimen>
+
+    <dimen name="list_item_container_padding">16dp</dimen>
+    <dimen name="list_item_container_padding_small">8dp</dimen>
+
+    <dimen name="list_item_avatar_size_small">24dp</dimen>
+    <dimen name="list_item_avatar_size">40dp</dimen>
+    <dimen name="list_item_avatar_size_large">56dp</dimen>
+    <dimen name="list_item_avatar_size_xlarge">72dp</dimen>
+    <dimen name="list_item_text_margin">3dp</dimen>
+
+    <dimen name="recommend_icon_size">48dp</dimen>
+</resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_make_new_board_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/make_new_board_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/margin20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/new_board"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen26" />
+
+                <TextView
+                    android:id="@+id/add_new_board_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="@dimen/margin20"
+                    android:text="@string/done"
+                    android:textSize="@dimen/dimen20" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/hr_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:layout_marginTop="@dimen/margin5"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/make_new_board_toolbar" />
+
+        <FrameLayout
+            android:id="@+id/upload_image_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hr_1">
+
+            <ImageView
+                android:id="@+id/upload_image_icon"
+                android:layout_width="@dimen/margin200"
+                android:layout_height="@dimen/margin200"
+                android:src="@drawable/upload_image_icon" />
+
+            <ImageView
+                android:id="@+id/upload_image_button"
+                android:layout_width="@dimen/margin80"
+                android:layout_height="@dimen/margin80"
+                android:layout_marginLeft="@dimen/margin130"
+                android:layout_marginTop="@dimen/margin130"
+                android:background="@drawable/image_background_round"
+                android:padding="@dimen/margin10"
+                android:src="@drawable/camera_icon" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/board_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upload_image_layout">
+
+            <TextView
+                android:id="@+id/board_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/board_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen20" />
+
+            <RelativeLayout
+                android:id="@+id/board_name_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/board_name_text"
+                android:layout_marginTop="@dimen/margin10"
+                android:background="@drawable/community_item_shape"
+                android:padding="@dimen/margin15">
+
+                <EditText
+                    android:id="@+id/board_name_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:hint="@string/board_name_description"
+                    android:maxLength="20"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:id="@+id/board_name_text_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:text="0 / 20" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/board_description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/board_name_input_layout"
+                android:layout_marginTop="@dimen/margin30"
+                android:text="@string/board_description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen20" />
+
+            <RelativeLayout
+                android:id="@+id/board_description_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin150"
+                android:layout_below="@+id/board_description_text"
+                android:layout_marginTop="@dimen/margin10"
+                android:background="@drawable/community_item_shape"
+                android:padding="@dimen/margin15">
+
+                <EditText
+                    android:id="@+id/board_description_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="@string/board_name_description"
+                    android:maxLength="100" />
+
+                <TextView
+                    android:id="@+id/board_description_text_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:text="0 / 100" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/set_anonymous_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/board_description_input_layout"
+                android:layout_marginTop="@dimen/margin30">
+
+                <TextView
+                    android:id="@+id/anonymous_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/anonymous"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen20" />
+
+                <!-- 추후 모양 커스텀 필요 -->
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:track="@color/navy_blue" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_now_trending_root"
+        android:layout_width="@dimen/margin300"
+        android:layout_height="wrap_content"
+        android:background="@drawable/community_item_shape"
+        android:padding="@dimen/margin15">
+
+        <TextView
+            android:id="@+id/board_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tap_background_gray"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="3dp"
+            android:text="Random"
+            android:textColor="@color/sliver"
+            android:textSize="@dimen/dimen10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <RelativeLayout
+            android:id="@+id/now_trending_user_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10"
+            app:layout_constraintStart_toStartOf="@id/board_title"
+            app:layout_constraintTop_toBottomOf="@id/board_title">
+
+            <ImageView
+                android:id="@+id/now_trending_user_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_profile_small" />
+
+            <TextView
+                android:id="@+id/now_trending_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin8"
+                android:layout_toRightOf="@+id/now_trending_user_icon"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:text="Daisy Duck"
+                android:textColor="@color/dark"
+                android:textSize="@dimen/dimen12" />
+
+            <TextView
+                android:id="@+id/now_trending_written_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="10:09"
+                android:textColor="@color/sliver"
+                android:textSize="@dimen/dimen13" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/now_trending_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:text="Dear Professor"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/dimen15"
+            app:layout_constraintStart_toStartOf="@id/now_trending_user_layout"
+            app:layout_constraintTop_toBottomOf="@+id/now_trending_user_layout" />
+
+        <TextView
+            android:id="@+id/now_trending_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="What happened to my grade?..."
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen12"
+            app:layout_constraintStart_toStartOf="@id/now_trending_title"
+            app:layout_constraintTop_toBottomOf="@+id/now_trending_title" />
+
+        <RelativeLayout
+            android:id="@+id/now_trending_like_comment_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15"
+            app:layout_constraintStart_toStartOf="@id/now_trending_content"
+            app:layout_constraintTop_toBottomOf="@id/now_trending_content">
+
+            <ImageView
+                android:id="@+id/now_trending_like_icon"
+                android:layout_width="@dimen/margin16"
+                android:layout_height="@dimen/margin16"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_like_small" />
+
+            <TextView
+                android:id="@+id/now_trending_like_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin5"
+                android:layout_toRightOf="@+id/now_trending_like_icon"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="19"
+                android:textColor="@color/sliver"
+                android:textSize="@dimen/dimen10" />
+
+            <ImageView
+                android:id="@+id/now_trending_comment_icon"
+                android:layout_width="@dimen/margin16"
+                android:layout_height="@dimen/margin16"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin10"
+                android:layout_toRightOf="@+id/now_trending_like_data"
+                android:src="@drawable/icon_comment_small" />
+
+            <TextView
+                android:id="@+id/now_trending_comment_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin5"
+                android:layout_toRightOf="@+id/now_trending_comment_icon"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="7"
+                android:textColor="@color/sliver"
+                android:textSize="@dimen/dimen10" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_boards_edit_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/boards_edit_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin20"
+            android:padding="@dimen/margin10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/edit_done_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin10"
+                android:text="@string/done"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/edit"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen26" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hr_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:layout_marginTop="@dimen/margin5"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/boards_edit_toolbar" />
+
+        <RelativeLayout
+            android:id="@+id/my_boards_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hr_2"
+            android:padding="@dimen/margin20">
+
+            <TextView
+                android:id="@+id/my_boards_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_boards"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen20" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_boards_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/my_boards_text"
+                android:layout_marginTop="@dimen/margin20"
+                tools:listitem="@layout/item_board_edit" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hr_3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin10"
+            android:background="@color/hr_gray"
+            android:layout_marginTop="@dimen/margin10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/my_boards_layout" />
+
+        <RelativeLayout
+            android:id="@+id/recommended_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hr_3">
+
+            <TextView
+                android:id="@+id/recommended_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recommended"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen20" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommended_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recommended_text"
+                android:layout_marginTop="@dimen/margin15"
+                tools:listitem="@layout/item_board_edit" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

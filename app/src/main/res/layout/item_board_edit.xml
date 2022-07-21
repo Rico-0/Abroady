@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_my_boards_recommended_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/board_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Must go"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/board_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Introduce hot places you must visit in korea"
+            android:textSize="@dimen/dimen16"
+            app:layout_constraintStart_toStartOf="@+id/board_title"
+            app:layout_constraintTop_toBottomOf="@+id/board_title" />
+
+        <ImageView
+            android:id="@+id/board_new_post_icon"
+            android:layout_width="@dimen/margin20"
+            android:layout_height="@dimen/margin20"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/margin5"
+            android:src="@drawable/boards_new_icon"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/board_title"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/community_item_shape"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/remove"
+            android:layout_marginRight="@dimen/margin10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

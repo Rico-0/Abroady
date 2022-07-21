@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_search_board_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/search_board_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin20"
+            android:padding="@dimen/margin10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/search_board_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_board_shape"
+                android:padding="@dimen/margin10">
+
+                <ImageView
+                    android:id="@+id/search_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_search" />
+
+                <EditText
+                    android:layout_width="@dimen/margin270"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin10"
+                    android:layout_toRightOf="@id/search_icon"
+                    android:background="@null"
+                    android:hint="@string/search_boards"
+                    android:maxLines="1" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/search_board_cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin5"
+                android:text="@string/cancel"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen18" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hr_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:layout_marginTop="@dimen/margin5"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_board_toolbar" />
+
+        <!-- 게시판 검색 결과가 없을 경우 나타나는 레이아웃 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/not_found_any_board_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hr_1"
+            android:layout_marginTop="@dimen/margin100">
+
+            <ImageView
+                android:id="@+id/search_icon_big"
+                android:layout_width="@dimen/margin200"
+                android:layout_height="@dimen/margin200"
+                android:src="@drawable/icon_search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/not_found_any_board_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/not_found_any_board"
+                android:layout_marginTop="@dimen/margin10"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_icon_big" />
+
+            <TextView
+                android:id="@+id/make_new_board_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background_shape"
+                android:gravity="center"
+                android:padding="@dimen/margin10"
+                android:text="@string/make_new_board"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen20"
+                android:layout_marginTop="@dimen/margin20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/not_found_any_board_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

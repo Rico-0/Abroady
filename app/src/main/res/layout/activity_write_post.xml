@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="writePostActivity"
+            type="com.reve.abroady.ui.community.WritePostActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/write_post_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/write_post_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/margin15"
+            android:layout_marginTop="@dimen/margin20">
+
+            <ImageView
+                android:id="@+id/close_write_post_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close_icon"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/write"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen26"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/write_post_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/done"
+                android:textSize="@dimen/dimen20" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hr_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/write_post_toolbar"/>
+
+        <RelativeLayout
+            android:id="@+id/choose_board_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/hr_1">
+
+            <TextView
+                android:id="@+id/choose_board_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/margin20"
+                android:text="@string/choose_board"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen20" />
+
+            <ImageView
+                android:id="@+id/choose_board_icon"
+                android:layout_width="@dimen/margin30"
+                android:layout_height="@dimen/margin30"
+                android:src="@drawable/go_next_icon"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin10"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hr_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/choose_board_layout"/>
+
+        <EditText
+            android:id="@+id/write_post_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            android:textSize="@dimen/dimen20"
+            android:padding="@dimen/margin20"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="@id/choose_board_layout"
+            app:layout_constraintTop_toBottomOf="@+id/choose_board_layout"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/hr_3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:background="@color/gray"
+            android:layout_marginTop="@dimen/margin5"
+            app:layout_constraintTop_toBottomOf="@id/write_post_title"/>
+
+        <RelativeLayout
+            android:id="@+id/write_post_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin440"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hr_3">
+
+            <!-- 추후 사진 첨부 생각해보기 -->
+            <ImageView
+                android:id="@+id/write_post_image"
+                android:layout_width="@dimen/margin200"
+                android:layout_height="@dimen/margin200"
+                android:layout_marginStart="@dimen/margin15"
+                android:layout_marginTop="@dimen/margin15"
+                android:layout_marginEnd="@dimen/margin15"
+                android:layout_marginBottom="@dimen/margin15"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/community_post_like_icon" />
+
+
+            <EditText
+                android:id="@+id/write_post_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/write_post_image"
+                android:background="@android:color/transparent"
+                android:gravity="top"
+                android:hint="@string/fill_the_content"
+                android:padding="@dimen/margin20"
+                android:scrollbars="vertical"
+                android:textSize="@dimen/dimen20" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hr_4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@+id/write_post_layout"/>
+
+        <RelativeLayout
+            android:id="@+id/camera_anonymous_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hr_4"
+            android:padding="@dimen/margin10">
+
+            <ImageView
+                android:id="@+id/write_post_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/camera_icon" />
+
+            <CheckBox
+                android:id="@+id/write_post_anonymous_checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/anonymous"
+                android:textColor="@color/gray" />
+
+        </RelativeLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

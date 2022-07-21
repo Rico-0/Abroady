@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/board_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/board_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen20"
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/board_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:text="Hot Board"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen26" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/hr_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/board_toolbar" />
+
+        <TextView
+            android:id="@+id/board_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin10"
+            android:background="@drawable/community_item_shape"
+            android:padding="@dimen/margin10"
+            android:text="Post received more than 100 likes will be displayed here."
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hr_1" />
+
+        <TextView
+            android:id="@+id/hr_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin10"
+            android:layout_marginTop="@dimen/margin10"
+            android:background="@color/hr_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/board_description" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/board_post_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="@dimen/margin10"
+            android:padding="@dimen/margin10"
+            app:reverseLayout="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hr_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constrainedHeight="true"
+            tools:listitem="@layout/item_all_board" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

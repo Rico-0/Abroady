@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/item_hot_board_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin15"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hot_board_post_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="Best thai restaurant ever!!"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen15" />
+
+        <RelativeLayout
+            android:id="@+id/hot_board_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/board_title_written_date_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5">
+
+                <TextView
+                    android:id="@+id/hot_board_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/tap_background_gray"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="Must go"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/dimen10" />
+
+                <TextView
+                    android:id="@+id/hot_board_written_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10"
+                    android:layout_toRightOf="@+id/hot_board_title"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center"
+                    android:text="6/29"
+                    android:textColor="@color/sliver"
+                    android:textSize="@dimen/dimen10" />
+
+                <RelativeLayout
+                    android:id="@+id/hot_board_like_comment_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/hot_board_like_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_like_small" />
+
+                    <TextView
+                        android:id="@+id/hot_board_like_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_toRightOf="@+id/hot_board_like_icon"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="521"
+                        android:textSize="@dimen/dimen10" />
+
+                    <ImageView
+                        android:id="@+id/hot_board_comment_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin10"
+                        android:layout_toRightOf="@+id/hot_board_like_data"
+                        android:src="@drawable/icon_comment_small" />
+
+                    <TextView
+                        android:id="@+id/hot_board_comment_data"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_toRightOf="@+id/hot_board_comment_icon"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:text="342"
+                        android:textSize="@dimen/dimen10" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_my_boards_recommended_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/board_thumbnail_icon"
+            android:layout_width="@dimen/margin50"
+            android:layout_height="@dimen/margin50"
+            android:src="@drawable/icon_comment_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/board_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Must go"
+            android:textSize="@dimen/dimen18"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/board_thumbnail_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="@dimen/margin10" />
+
+        <TextView
+            android:id="@+id/board_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Introduce hot places you must visit in korea"
+            android:textSize="@dimen/dimen16"
+            app:layout_constraintStart_toEndOf="@+id/board_thumbnail_icon"
+           app:layout_constraintTop_toBottomOf="@+id/board_title"
+            android:layout_marginLeft="@dimen/margin10" />
+
+        <ImageView
+            android:id="@+id/board_new_post_icon"
+            android:layout_width="@dimen/margin20"
+            android:layout_height="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin5"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintStart_toEndOf="@+id/board_title"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/boards_new_icon"
+            tools:visibility="visible"
+            android:visibility="gone"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

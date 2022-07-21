@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_all_board_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 추후 RecyclerView 안에 여러 이미지 넣는 걸로 바꾸기 -->
+        <ImageView
+            android:id="@+id/post_image"
+            android:layout_width="@dimen/margin200"
+            android:layout_height="@dimen/margin200"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_title"
+            tools:src="@drawable/icon_like_small"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/board_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tap_background_gray"
+            android:padding="@dimen/margin5"
+            android:text="Must go"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/user_profile_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10"
+            app:layout_constraintStart_toStartOf="@id/board_name"
+            app:layout_constraintTop_toBottomOf="@id/board_name">
+
+            <ImageView
+                android:id="@+id/user_profile_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_participant" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin5"
+                android:layout_toRightOf="@+id/user_profile_image"
+                android:text="Plato"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/written_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/margin10"
+                android:text="6/29" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/post_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10"
+            android:text="Best thai restaurant ever!!"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen18"
+            app:layout_constraintStart_toStartOf="@id/user_profile_layout"
+            app:layout_constraintTop_toBottomOf="@id/user_profile_layout" />
+
+        <TextView
+            android:id="@+id/post_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10"
+            android:text="I've never been to such a cool thai restaurant like this!\nEven better than the one I had in Thailand."
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen16"
+            app:layout_constraintStart_toStartOf="@id/post_title"
+            app:layout_constraintTop_toBottomOf="@id/post_image" />
+
+        <RelativeLayout
+            android:id="@+id/image_like_comment_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15"
+            app:layout_constraintStart_toStartOf="@id/post_content"
+            app:layout_constraintTop_toBottomOf="@+id/post_content">
+
+            <ImageView
+                android:id="@+id/image_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/image_icon" />
+
+            <TextView
+                android:id="@+id/image_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin5"
+                android:layout_toRightOf="@+id/image_icon"
+                android:text="3" />
+
+            <RelativeLayout
+                android:id="@+id/like_comment_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true">
+
+                <ImageView
+                    android:id="@+id/like_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_like_small" />
+
+                <TextView
+                    android:id="@+id/like_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_toRightOf="@+id/like_icon"
+                    android:text="521" />
+
+                <ImageView
+                    android:id="@+id/comment_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10"
+                    android:layout_toRightOf="@+id/like_data"
+                    android:src="@drawable/icon_comment_small" />
+
+                <TextView
+                    android:id="@+id/comment_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_toRightOf="@+id/comment_icon"
+                    android:text="342" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hr_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin10"
+            android:layout_marginTop="@dimen/margin15"
+            android:background="@color/hr_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_like_comment_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
