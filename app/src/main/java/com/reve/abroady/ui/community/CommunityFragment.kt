@@ -2,7 +2,6 @@ package com.reve.abroady.ui.community
 
 import android.content.Intent
 import android.util.Log
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.reve.abroady.R
@@ -10,7 +9,7 @@ import com.reve.abroady.base.BaseFragment
 import com.reve.abroady.databinding.FragmentCommunityBinding
 import com.reve.abroady.model.data.post.HotBoard
 import com.reve.abroady.model.data.post.NowTrending
-import com.reve.abroady.model.data.Party
+import com.reve.abroady.model.data.party.Party
 import com.reve.abroady.model.data.post.OnePostPerBoard
 import com.reve.abroady.ui.community.adapter.HotBoardAdapter
 import com.reve.abroady.ui.community.adapter.NowTrendingAdapter
@@ -36,6 +35,8 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     // fragment가 activity에 종속되어 있으므로 Fragment가 생성된 Activity의 Lifecycle에 ViewModel 종속시킴
     // 이로 인해 같은 Activity(ViewModelStoreOwner) 를 공유하는 Fragment 간의 데이터 전달이 가능해짐
     private val mainViewModel : MainViewModel by activityViewModels()
+
+
 
     override fun initStartView() {
         Log.d(TAG, "login Type - 로그인 눌렀을 때 : $login_type")
@@ -68,6 +69,12 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             Log.d(TAG, "login Type : $login_type")
             LoginInstance.getLoginInstance(requireContext(), requireActivity(), login_type!!).logout()
         }
+
+        // 파티 하나 액티비티 디자인 열람용. 추후 삭제
+        binding.hotPartyButton.setOnClickListener {
+            val intent = Intent(requireContext(), OnePartyActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun partyButtonListener() {
@@ -75,14 +82,14 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             binding.myPartyButton.setBackgroundResource(R.drawable.tap_background_colored)
             binding.myPartyButton.setTextColor(resources.getColor(R.color.white))
             binding.hotPartyButton.setBackgroundResource(R.drawable.tap_background_default)
-            binding.hotPartyButton.setTextColor(resources.getColor(R.color.sliver))
+            binding.hotPartyButton.setTextColor(resources.getColor(R.color.line))
             flag = false
         }
         else {
             binding.hotPartyButton.setBackgroundResource(R.drawable.tap_background_colored)
             binding.hotPartyButton.setTextColor(resources.getColor(R.color.white))
             binding.myPartyButton.setBackgroundResource(R.drawable.tap_background_default)
-            binding.myPartyButton.setTextColor(resources.getColor(R.color.sliver))
+            binding.myPartyButton.setTextColor(resources.getColor(R.color.line))
             flag = true
         }
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 파티글 우측 상단에 있는 menu -->
+    <item
+        android:id="@+id/party_send_message"
+        android:title="@string/send_message" />
+    <item
+        android:id="@+id/party_report"
+        android:title="@string/report" />
+
+    <item
+        android:id="@+id/party_block_user"
+        android:title="@string/block_this_user" />
+</menu>

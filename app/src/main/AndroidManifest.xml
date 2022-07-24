@@ -28,13 +28,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.community.MakeNewBoardActivity"  android:exported="false" />
-        <activity android:name=".ui.community.SearchBoardActivity"   android:exported="false" />
-        <activity android:name=".ui.community.BoardsEditActivity"  android:exported="false" />
-        <activity android:name=".ui.community.BoardsActivity"  android:exported="false" />
-        <activity android:name=".ui.community.BoardActivity"   android:exported="false" />
+        <activity android:name=".ui.community.OnePartyActivity"/>
+        <activity android:name=".ui.login.SignUpActivity" />
+        <activity android:name=".ui.login.SignInActivity" />
+        <activity android:name=".ui.community.MakeNewBoardActivity" />
+        <activity android:name=".ui.community.SearchBoardActivity" />
+        <activity android:name=".ui.community.BoardsEditActivity" />
+        <activity android:name=".ui.community.BoardsActivity" />
+        <activity android:name=".ui.community.BoardActivity" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.login.LoginSelectActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

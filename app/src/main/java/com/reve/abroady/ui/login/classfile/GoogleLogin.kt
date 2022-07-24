@@ -11,7 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.reve.abroady.ui.MainActivity
-import com.reve.abroady.ui.login.LoginActivity
+import com.reve.abroady.ui.login.LoginSelectActivity
 import com.reve.abroady.util.PreferenceManager.login_type
 
 class GoogleLogin(private val activity: Activity) : LoginBase() {
@@ -64,7 +64,7 @@ class GoogleLogin(private val activity: Activity) : LoginBase() {
                     task.addOnSuccessListener(activity) {
                         login_type = null
                         Toast.makeText(activity, "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(activity, LoginActivity::class.java)
+                        val intent = Intent(activity, LoginSelectActivity::class.java)
                         // 스택 중간에 있었던 액티비티들을 지우는 역할
                         activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                         activity.finish()

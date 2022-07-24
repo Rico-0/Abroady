@@ -21,21 +21,17 @@
                 android:id="@+id/logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
                 android:text="로그아웃" />
 
-            <TextView
-                android:id="@+id/community_text"
+            <ImageView
+                android:id="@+id/abroady_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin20"
-                android:fontFamily="@font/notosanskr_medium"
-                android:includeFontPadding="false"
-                android:text="@string/community"
-                android:textColor="@color/black"
-                android:textSize="@dimen/dimen26" />
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin20"
+                android:src="@drawable/logo_abroady_small" />
 
             <ImageView
                 android:id="@+id/community_search_button"
@@ -56,24 +52,26 @@
                 android:layout_marginRight="@dimen/margin20"
                 android:src="@drawable/icon_notification" />
 
-            <TextView
-                android:id="@+id/hr_1"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin1"
-                android:layout_marginTop="@dimen/margin5"
-                android:textColor="@color/sliver"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/community_text" />
-
         </RelativeLayout>
 
-        <ScrollView
+        <TextView
+            android:id="@+id/hr_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin1"
+            android:textColor="@color/line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/community_toolbar_layout"
+            app:layout_constraintBottom_toTopOf="@+id/community_content_root"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/community_content_root"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none"
             app:layout_constraintTop_toBottomOf="@+id/community_toolbar_layout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/community_content_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -82,14 +80,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin20"
-                    android:layout_marginTop="@dimen/margin10"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/my_party_button"
-                        android:layout_width="@dimen/margin70"
+                        android:layout_width="@dimen/margin65"
                         android:layout_height="wrap_content"
                         android:background="@drawable/tap_background_colored"
                         android:clickable="true"
@@ -111,7 +109,7 @@
                         android:gravity="center"
                         android:includeFontPadding="false"
                         android:text="@string/hot"
-                        android:textColor="@color/sliver"
+                        android:textColor="@color/line"
                         android:textSize="@dimen/dimen12" />
 
                 </LinearLayout>
@@ -121,6 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin20"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintStart_toStartOf="@+id/my_party_hot_button_layout"
                     app:layout_constraintTop_toBottomOf="@+id/my_party_hot_button_layout"
                     tools:listitem="@layout/item_party" />
@@ -248,7 +247,7 @@
                                 android:fontFamily="@font/notosanskr_regular"
                                 android:includeFontPadding="false"
                                 android:text="@string/more"
-                                android:textColor="@color/navy_blue"
+                                android:textColor="@color/main"
                                 android:textSize="@dimen/dimen12" />
 
                             <ImageView
@@ -301,7 +300,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin5"
                         app:layout_constrainedHeight="true"
-                        android:paddingBottom="@dimen/margin150"
+                        android:paddingBottom="@dimen/margin200"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -313,7 +312,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <ImageView
             android:id="@+id/community_write_post_button"
@@ -321,7 +320,7 @@
             android:layout_height="0dp"
             android:layout_marginRight="@dimen/margin20"
             android:layout_marginBottom="@dimen/margin80"
-            android:backgroundTint="@color/navy_blue"
+            android:backgroundTint="@color/main"
             android:foregroundGravity="center"
             android:scaleType="fitXY"
             android:src="@drawable/icon_write"

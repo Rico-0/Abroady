@@ -6,6 +6,8 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.reve.abroady.ui.MainActivity
+import com.reve.abroady.util.ActivityList
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
@@ -64,6 +66,8 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
     override fun onDestroy() {
         Log.d(TAG, "++onDestroy()")
         compositeDisposable.dispose()
+        if (this is MainActivity)
+            ActivityList.actList.remove(this)
         super.onDestroy()
     }
 

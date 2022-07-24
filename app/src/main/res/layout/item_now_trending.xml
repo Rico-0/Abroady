@@ -18,7 +18,7 @@
             android:includeFontPadding="false"
             android:padding="3dp"
             android:text="Random"
-            android:textColor="@color/sliver"
+            android:textColor="@color/line"
             android:textSize="@dimen/dimen10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +61,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="10:09"
-                android:textColor="@color/sliver"
+                android:textColor="@color/line"
                 android:textSize="@dimen/dimen13" />
 
         </RelativeLayout>
@@ -117,7 +117,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="19"
-                android:textColor="@color/sliver"
+                android:textColor="@color/line"
                 android:textSize="@dimen/dimen10" />
 
             <ImageView
@@ -139,7 +139,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="7"
-                android:textColor="@color/sliver"
+                android:textColor="@color/line"
                 android:textSize="@dimen/dimen10" />
 
         </RelativeLayout>

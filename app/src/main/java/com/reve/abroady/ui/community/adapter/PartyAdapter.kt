@@ -1,19 +1,27 @@
 package com.reve.abroady.ui.community.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.reve.abroady.databinding.ItemPartyBinding
-import com.reve.abroady.model.data.Party
+import com.reve.abroady.model.data.party.Party
 
 class PartyAdapter (
     private var partyList : List<Party>
 ) : RecyclerView.Adapter<PartyAdapter.ViewHolder>() {
 
+    private var onPartyClickListener: (() -> Unit)? = null
+
+    fun setOnPartyClickListener(listener : (() -> Unit)) {
+        this.onPartyClickListener = listener
+    }
+
     inner class ViewHolder(private val binding : ItemPartyBinding) :
     RecyclerView.ViewHolder(binding.root) {
         fun bindView(party : Party) {
+           /* binding.root.setOnClickListener {
+                onPartyClickListener?.invoke()
+            } */
             binding.partyTime.text = party.time
             binding.partyLocation.text = party.location
             binding.partyContent.text = party.content

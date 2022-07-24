@@ -11,7 +11,7 @@ import com.navercorp.nid.oauth.OAuthLoginCallback
 import com.navercorp.nid.profile.NidProfileCallback
 import com.navercorp.nid.profile.data.NidProfileResponse
 import com.reve.abroady.ui.MainActivity
-import com.reve.abroady.ui.login.LoginActivity
+import com.reve.abroady.ui.login.LoginSelectActivity
 import com.reve.abroady.util.PreferenceManager.login_type
 
 class NaverLogin(
@@ -65,7 +65,7 @@ class NaverLogin(
         // NaverIdLoginSDK.getState() 메서드가 NidOAuthLoginState.NEED_LOGIN 값을 반환합니다.
         NaverIdLoginSDK.logout()
         login_type = null
-        val intent = Intent(activity, LoginActivity::class.java)
+        val intent = Intent(activity, LoginSelectActivity::class.java)
         // 스택 중간에 있었던 액티비티들을 지우는 역할
         activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
         activity.finish()
@@ -92,7 +92,7 @@ class NaverLogin(
 
             override fun onSuccess() {
                 login_type = null
-                val intent = Intent(activity, LoginActivity::class.java)
+                val intent = Intent(activity, LoginSelectActivity::class.java)
                 // 스택 중간에 있었던 액티비티들을 지우는 역할
                 activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 activity.finish()

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_party_comment_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/margin15">
+
+        <ImageView
+            android:id="@+id/party_comment_user_profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_profile_middle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/party_comment_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin8"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:text="Mickey Mouse"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen15"
+            android:layout_marginTop="@dimen/margin5"
+            app:layout_constraintStart_toEndOf="@+id/party_comment_user_profile_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/party_comment_written_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="16:38"
+            android:textColor="@color/line"
+            android:textSize="@dimen/dimen10"
+            android:layout_marginTop="@dimen/margin10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/party_comment_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="What serves there?"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/dimen15"
+            android:layout_marginTop="@dimen/margin8"
+            app:layout_constraintStart_toStartOf="@id/party_comment_user_name"
+            app:layout_constraintTop_toBottomOf="@+id/party_comment_user_name" />
+
+        <ImageView
+            android:id="@+id/party_comment_like_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10"
+            android:layout_marginRight="@dimen/margin3"
+            android:src="@drawable/icon_like_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/party_comment_written_time" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

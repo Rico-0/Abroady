@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:track="@color/navy_blue" />
+                    android:track="@color/main" />
 
             </RelativeLayout>
 

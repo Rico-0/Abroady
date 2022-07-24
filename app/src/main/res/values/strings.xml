@@ -12,6 +12,9 @@
     <string name="select_login">Continue with social media</string>
     <string name="no_account">Don\'t have any account?</string>
     <string name="sign_up">Sign up</string>
+    <string name="login_description_title">Log in to see more</string>
+    <string name="login_description_content_1">Abroady is waiting for you</string>
+    <string name="login_description_content_2">with various articles.</string>
 
     <!-- community 화면 string -->
     <string name="community">Community</string>
@@ -55,5 +58,19 @@
     <string name="board_name_description">Enter name for a new board.</string>
     <string name="board_description">Description</string>
     <string name="new_board_description">Enter a description for this board.</string>
+
+    <!-- Party 화면 string -->
+    <string name="party">Party</string>
+    <string name="available">Available</string>
+    <string name="unavailable">Unavailable</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="see_participants">See participants</string>
+    <string name="participate">Participate</string>
+    <string name="default_comment">Default</string>
+    <string name="recent_comment">Recent</string>
+    <string name="send_message">Send Message</string>
+    <string name="report">Report</string>
+    <string name="block_this_user">Block this user</string>
 
 </resources>

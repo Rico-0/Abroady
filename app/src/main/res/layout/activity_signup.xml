@@ -17,6 +17,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/button_go_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin20"
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin1"
             android:layout_marginTop="@dimen/margin5"
-            android:background="@color/sliver"
+            android:background="@color/line"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_up_toolbar" />
 
@@ -120,13 +121,13 @@
                 android:id="@+id/create_your_account_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                app:layout_constraintStart_toStartOf="@+id/select_create_account_root"
-                app:layout_constraintTop_toTopOf="parent"
                 android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
                 android:text="@string/create_your_account"
                 android:textColor="@color/black"
-                android:textSize="@dimen/dimen22" />
+                android:textSize="@dimen/dimen22"
+                app:layout_constraintStart_toStartOf="@+id/select_create_account_root"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -148,7 +149,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:gravity="center"
                 android:text="@string/already_have_account"
-                android:textColor="@color/sliver"
+                android:textColor="@color/line"
                 android:textSize="@dimen/dimen16" />
 
             <TextView

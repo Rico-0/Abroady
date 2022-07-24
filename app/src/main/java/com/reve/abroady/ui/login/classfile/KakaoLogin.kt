@@ -11,7 +11,7 @@ import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
 import com.reve.abroady.ui.MainActivity
-import com.reve.abroady.ui.login.LoginActivity
+import com.reve.abroady.ui.login.LoginSelectActivity
 import com.reve.abroady.util.PreferenceManager.login_type
 
 class KakaoLogin(private val activity: Activity) : LoginBase() {
@@ -108,7 +108,7 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
             } else {
                 login_type = null
                 Toast.makeText(activity, "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(activity, LoginActivity::class.java)
+                val intent = Intent(activity, LoginSelectActivity::class.java)
                 // 스택 중간에 있었던 액티비티들을 지우는 역할
                 activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 activity.finish()
@@ -140,7 +140,7 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
                             Toast.LENGTH_SHORT
                         ).show()
                         val intent =
-                            Intent(activity, LoginActivity::class.java)
+                            Intent(activity, LoginSelectActivity::class.java)
                         // 스택 중간에 있었던 액티비티들을 지우는 역할
                         activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                         activity.finish()

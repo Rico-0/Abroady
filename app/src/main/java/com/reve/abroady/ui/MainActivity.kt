@@ -1,5 +1,6 @@
 package com.reve.abroady.ui
 
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -13,15 +14,15 @@ import com.reve.abroady.ui.login.classfile.LoginBase
 import com.reve.abroady.ui.map.MapFragment
 import com.reve.abroady.ui.match.MatchFragment
 import com.reve.abroady.ui.my.MyFragment
+import com.reve.abroady.util.ActivityList
 import com.reve.abroady.util.LoginInstance
 import com.reve.abroady.util.PreferenceManager.login_type
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     companion object {
-        val TAB_LAYOUT_ICON = arrayOf(R.drawable.icon_search, R.drawable.icon_notification, R.drawable.icon_notification,
-        R.drawable.icon_search, R.drawable.icon_search)
-        val TAB_LAYOUT_TEXT = arrayOf("Home", "Map", "Match", "Chat", "My")
+        val TAB_LAYOUT_ICON = arrayOf(R.drawable.icon_home_selected, R.drawable.icon_map_default, R.drawable.icon_matching_default,
+        R.drawable.icon_chatting_default, R.drawable.icon_mypage_default)
     }
 
     override val layoutResourceId: Int
@@ -34,9 +35,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private lateinit var loginInstance: LoginBase
 
+    private var backPressedTime : Long = 0
+
     override fun initStartView() {
         setLoginType(intent.getStringExtra("loginType"))
         tabLayoutbinding = DataBindingUtil.inflate(layoutInflater, tabLayoutResourceId, null, false)
+        ActivityList.actList.add(this)
 
         // 임시 로그인 확인 (kakao)
         // 구글 로그인으로 사용자 정보 얻어오기 처리 필요
@@ -68,41 +72,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         type?.let {  login_type = type }
     }
 
-    /*  아이콘 추후 수정
-    private fun createTabLayoutView(tabName: String): View {
-       tabLayoutbinding.tabText.text = tabName
-        when (tabName) {
-            "Home" -> {
-                tabLayoutbinding.tabIcon.setImageResource(R.drawable.search_icon)
-                return tabLayoutbinding.root
-            }
-            "Map" -> {
-                tabLayoutbinding.tabIcon.setImageResource(R.drawable.notification_icon)
-                return tabLayoutbinding.root
-            }
-            "Match" -> {
-                tabLayoutbinding.tabIcon.setImageResource(R.drawable.write_post_icon)
-                return tabLayoutbinding.root
-            }
-            "Chat" -> {
-                tabLayoutbinding.tabIcon.setImageResource(R.drawable.community_post_like_icon)
-                return tabLayoutbinding.root
-            }
-            "My" -> {
-                tabLayoutbinding.tabIcon.setImageResource(R.drawable.party_person_icon)
-                return tabLayoutbinding.root
-            }
-            else -> {
-                return tabLayoutbinding.root
-            }
-        }
-    }  */
-
     private fun initTabLayout() {
         TabLayoutMediator(binding.mainTablayout, binding.mainViewPager) { tab, position ->
             tab.setIcon(TAB_LAYOUT_ICON.get(position))
-           // var tabText = TAB_LAYOUT_TEXT.get(position)
-           // tab.customView = createTabLayoutView(tabText)
         }.attach()
+    }
+
+    override fun onBackPressed() {
+        if (System.currentTimeMillis() - backPressedTime < 2500) {
+            ActivityList.finishAllActivities()
+        }
+        Toast.makeText(this, "Press the back button one more if you want to terminate Abroady.", Toast.LENGTH_SHORT).show()
+        backPressedTime = System.currentTimeMillis()
     }
 }

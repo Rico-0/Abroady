@@ -1,4 +1,4 @@
-package com.reve.abroady.model.data
+package com.reve.abroady.model.data.party
 
 // 추후 Serialize 될 예정 (데이터 구조 수정)
 data class Party(
