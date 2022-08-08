@@ -6,9 +6,11 @@
 ![Untitled](https://user-images.githubusercontent.com/45986958/183343764-e3e38266-3d4e-4ddb-9b39-47e7650f1570.png)
 
 메인 화면 (2)
+
 ![Untitled (1)](https://user-images.githubusercontent.com/45986958/183343768-49d8d3a6-b938-4181-a701-f54a0b9b7fdd.png)
 
 파티 상세 화면
+
 ![Untitled (2)](https://user-images.githubusercontent.com/45986958/183343773-cc77505e-ac86-494c-9c87-cda0a26f9223.png)
 
 ## 도입해야 하는 기술 & 수정 사항
