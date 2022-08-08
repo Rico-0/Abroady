@@ -10,14 +10,34 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import com.reve.abroady.model.data.RetrofitInstance
+import com.reve.abroady.model.data.login.AgainToken
+import com.reve.abroady.model.data.login.SignUpUserData
+import com.reve.abroady.model.data.login.SignUpUserDataForSend
+import com.reve.abroady.model.data.login.SocialLogin
 import com.reve.abroady.ui.MainActivity
 import com.reve.abroady.ui.login.LoginSelectActivity
+import com.reve.abroady.util.PreferenceManager.access_token
+import com.reve.abroady.util.PreferenceManager.is_loggedIn_before
 import com.reve.abroady.util.PreferenceManager.login_type
+import com.reve.abroady.util.PreferenceManager.refresh_token
+import com.reve.abroady.util.PreferenceManager.user_id
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class KakaoLogin(private val activity: Activity) : LoginBase() {
 
     private val TAG: String = this.javaClass.simpleName
-    private var loginType: String = "kakao"
+
+    companion object {
+        private val loginDao = RetrofitInstance.getLoginDao()
+        private const val KAKAO = "kakao"
+        private const val SUCCESS_GET_TOKEN_AGAIN = 200
+        private const val VALID_TOKEN = 202
+        private const val FAIL_GET_TOKEN_AGAIN = 400
+        private const val INVALID_TOKEN = 401
+    }
 
     // 카카오 로그인 후 결과 코드
     private val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
@@ -62,13 +82,174 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
                 }
             }
         } else if (token != null) {
-            // 토큰값이 존재하면 login type 설정
             Log.d("KakaoLogin", "로그인 성공 : 액세스 토큰 값 -> ${token.accessToken}")
-            val intent = Intent(activity, MainActivity::class.java)
-            intent.putExtra("loginType", "kakao")
-            activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)) // 스택에 있던 액티비티들을 지우는 역할
-            activity.finish()
+            // 만약 전에 로그인한 기록이 없다면 회원가입 진행
+            if (!is_loggedIn_before)
+                signUp(token.accessToken)
+            else
+                signIn(token.accessToken)
         }
+    }
+
+    override fun signUp(kakaoToken : String) {
+        loginDao.socialLogin(KAKAO, kakaoToken).enqueue(object : Callback<SocialLogin> {
+            override fun onResponse(call: Call<SocialLogin>, response: Response<SocialLogin>) {
+                if (response.isSuccessful) {
+                    Log.d(TAG, "signup status code : ${response.body()}")
+                    val userData = response.body()?.userData
+                    when (response.body()?.httpStatus) {
+                        // 임시 코드 (삭제 예정)
+                        LOGIN_SUCCESS -> {
+                            val userData = response.body()?.userData
+                            userData?.run {
+                                user_id = userData.id // 유저 식별 값
+                                login_type = KAKAO // 로그인 유형
+                                access_token = userData.accessToken
+                                refresh_token = userData.refreshToken
+                                is_loggedIn_before =
+                                    true // 로그인했는지 여부를 true로 변경
+                                val intent = Intent(
+                                    activity,
+                                    MainActivity::class.java
+                                )
+                                activity.startActivity(
+                                    intent.addFlags(
+                                        Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                    )
+                                ) // 스택에 있던 액티비티들을 지우는 역할
+                                activity.finish()
+                            }
+                        }
+                        NOT_SIGNED_UP -> { // 회원으로 가입되지 않은 유저인 경우
+                            val social = userData?.social
+                            val uuid = userData?.uuid
+                            if (social != null && uuid != null) { // 소셜 로그인에서 받은 social, uuid 정보를 받아 회원가입을 진행
+                                // 닉네임, 국적, 언어는 추후 UI에서 선택한 값으로 받아와야 함 (테스트용)
+                                loginDao.signUp(
+                                    SignUpUserDataForSend(
+                                        social,
+                                        uuid,
+                                        "test user",
+                                        "Korea",
+                                        listOf("Korean")
+                                    )
+                                ).enqueue(object : Callback<SignUpUserData> {
+                                    override fun onResponse(
+                                        call: Call<SignUpUserData>,
+                                        response: Response<SignUpUserData>
+                                    ) {
+                                        if (response.isSuccessful) {
+                                            when (response.body()?.httpStatus) {
+                                                SIGNUP_SUCCESS -> { // 회원 가입 성공
+                                                    // 서버에서 반환해 준 데이터를 SharedPreference에 저장
+                                                    val userData = response.body()?.userData
+                                                    userData?.run {
+                                                        user_id = userData.id // 유저 식별 값
+                                                        login_type = KAKAO // 로그인 유형
+                                                        access_token = userData.accessToken
+                                                        refresh_token = userData.refreshToken
+                                                        is_loggedIn_before =
+                                                            true // 로그인했는지 여부를 true로 변경
+                                                        val intent = Intent(
+                                                            activity,
+                                                            MainActivity::class.java
+                                                        )
+                                                        activity.startActivity(
+                                                            intent.addFlags(
+                                                                Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                                            )
+                                                        ) // 스택에 있던 액티비티들을 지우는 역할
+                                                        activity.finish()
+                                                    }
+                                                }
+                                                LOGIN_FAIL -> {
+                                                    Log.e(TAG, "잘못된 요청 값 : signUp")
+                                                }
+                                                ALREADY_HAVE_SAME_NICKNAME -> {
+                                                    Log.e(TAG, "이미 사용중인 닉네임 사용")
+                                                }
+                                                SERVER_ERROR -> {
+                                                    Log.e(TAG, "서버 내부 오류 : signUp")
+                                                }
+                                                else -> {
+                                                    Log.d(TAG, "signup else : ${response.errorBody()?.string()}")
+                                                }
+                                            }
+                                        } else {
+                                            Log.d(TAG, "signup : ${response.errorBody()?.string()}")
+                                        }
+                                    }
+
+                                    override fun onFailure(
+                                        call: Call<SignUpUserData>,
+                                        t: Throwable
+                                    ) {
+                                        Log.e(TAG, "signup - sign error : $t")
+                                    }
+
+                                })
+                            }
+                        }
+                        LOGIN_FAIL -> {
+                            Log.e(TAG, "잘못된 요청 값 : socialLogin")
+                        }
+                        UNAUTHORIZED -> {
+                            Log.e(TAG, "인증되지 않은 요청 : socialLogin")
+                        }
+                        SERVER_ERROR -> {
+                            Log.e(TAG, "서버 내부 오류 : socialLogin")
+                        }
+                    }
+                }
+            }
+            override fun onFailure(call: Call<SocialLogin>, t: Throwable) {
+                Log.e(TAG, "signup - socialLogin error : $t")
+            }
+        })
+    }
+
+    override fun signIn(kakaoToken : String) {
+        loginDao.socialLogin(KAKAO, kakaoToken).enqueue(object : Callback<SocialLogin> {
+            override fun onResponse(call: Call<SocialLogin>, response: Response<SocialLogin>) {
+                if (response.isSuccessful) {
+                    when (response.body()?.httpStatus) {
+                        LOGIN_SUCCESS -> {
+                            val userData = response.body()?.userData
+                            userData?.run {
+                                access_token = userData.accessToken
+                                refresh_token = userData.refreshToken
+                                val intent = Intent(
+                                    activity,
+                                    MainActivity::class.java
+                                )
+                                activity.startActivity(
+                                    intent.addFlags(
+                                        Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                    )
+                                ) // 스택에 있던 액티비티들을 지우는 역할
+                                activity.finish()
+                            }
+                        }
+                        LOGIN_FAIL -> {
+                            Log.e(TAG, "잘못된 요청 값 : signIn")
+                        }
+                        UNAUTHORIZED -> {
+                            Log.e(TAG, "인증되지 않은 요청 : signIn")
+                        }
+                        SERVER_ERROR -> {
+                            Log.e(TAG, "서버 내부 오류 : signIn")
+                        }
+                        else -> {  Log.d(TAG, "signin else : ${response.errorBody()?.string()}") }
+                    }
+                } else {
+                    Log.d(TAG, "signin : ${response.errorBody()?.string()}")
+                }
+            }
+
+            override fun onFailure(call: Call<SocialLogin>, t: Throwable) {
+                Log.e(TAG, "signin error : $t")
+            }
+        })
     }
 
     override fun checkAlreadyLoggedIn() {
@@ -79,10 +260,48 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
                 if (error != null) {
                     Log.d(TAG, "카카오 토큰 확인 중 에러 발생 : $error")
                     return@accessTokenInfo
-                } else if (tokenInfo != null) { // 유효한 토큰 존재, 카카오 로그인 성공
-                    val intent = Intent(activity, MainActivity::class.java)
-                    activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                    activity.finish()
+                } else if (tokenInfo != null) { // 유효한 토큰 존재
+                    // 토큰 재발급 api로 토큰 유효한지 검사 후 유효하면 메인 화면으로 이동, 아니면 재발급 받고 이동
+                        if (access_token != null && refresh_token != null) {
+                            loginDao.getTokenAgain(access_token!!, refresh_token!!).enqueue(object : Callback<AgainToken> {
+                                override fun onResponse(
+                                    call: Call<AgainToken>,
+                                    response: Response<AgainToken>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        when (response.body()?.httpStatus) {
+                                            SUCCESS_GET_TOKEN_AGAIN -> { // 토큰 재발급 성공
+                                                access_token = response.body()?.token?.token
+                                                val intent = Intent(activity, MainActivity::class.java)
+                                                activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                                                activity.finish()
+                                            }
+                                            VALID_TOKEN -> { // 토큰이 유효한 경우
+                                                val intent = Intent(activity, MainActivity::class.java)
+                                                activity.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                                                activity.finish()
+                                            }
+                                            FAIL_GET_TOKEN_AGAIN -> {
+                                                Log.e(TAG, "요청 값 잘못됨 : 자동 로그인")
+                                            }
+                                            INVALID_TOKEN -> {
+                                                Log.e(TAG, "유효하지 않은 유저 또는 토큰 : 자동 로그인")
+                                            }
+                                            SERVER_ERROR -> {
+                                                Log.e(TAG, "서버 내부 오류 : 자동 로그인")
+                                            }
+                                            else -> { }
+                                        }
+                                    } else {
+                                        Log.d(TAG, "${response.body()?.httpStatus}")
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<AgainToken>, t: Throwable) {
+                                    Log.e(TAG, "자동 로그인 에러 : $t")
+                                }
+                            })
+                        }
                 } else if (tokenInfo == null) {
                     Log.d(TAG, "카카오 토큰 정보 존재하지 않음")
                     return@accessTokenInfo
@@ -92,10 +311,14 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
     }
 
     override fun login() {
-        if (UserApiClient.instance.isKakaoTalkLoginAvailable(activity)) {
-            UserApiClient.instance.loginWithKakaoTalk(activity, callback = callback)
-        } else {
-            UserApiClient.instance.loginWithKakaoAccount(activity, callback = callback)
+        if (login_type != null && is_loggedIn_before)
+            alreadyHaveAccount(activity)
+        else {
+            if (UserApiClient.instance.isKakaoTalkLoginAvailable(activity)) {
+                UserApiClient.instance.loginWithKakaoTalk(activity, callback = callback)
+            } else {
+                UserApiClient.instance.loginWithKakaoAccount(activity, callback = callback)
+            }
         }
     }
 
@@ -106,7 +329,6 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
             if (error != null) {
                 Toast.makeText(activity, "로그아웃에 실패하였습니다 : $error", Toast.LENGTH_SHORT).show()
             } else {
-                login_type = null
                 Toast.makeText(activity, "정상적으로 로그아웃되었습니다.", Toast.LENGTH_SHORT).show()
                 val intent = Intent(activity, LoginSelectActivity::class.java)
                 // 스택 중간에 있었던 액티비티들을 지우는 역할
@@ -132,7 +354,11 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
-                        login_type = "null"
+                        login_type = null
+                        user_id = -1
+                        access_token = null
+                        refresh_token = null
+                        is_loggedIn_before = false
                         dialog?.dismiss()
                         Toast.makeText(
                             activity,
@@ -149,8 +375,8 @@ class KakaoLogin(private val activity: Activity) : LoginBase() {
             }
             .setNegativeButton("아니오"
             ) { dialog, which ->
-                dialog?.let {
-                    it.dismiss()
+                dialog?.run {
+                    dismiss()
                 }
             }
         alterDialog.show()

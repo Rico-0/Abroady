@@ -36,8 +36,6 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     // 이로 인해 같은 Activity(ViewModelStoreOwner) 를 공유하는 Fragment 간의 데이터 전달이 가능해짐
     private val mainViewModel : MainViewModel by activityViewModels()
 
-
-
     override fun initStartView() {
         Log.d(TAG, "login Type - 로그인 눌렀을 때 : $login_type")
         initClickListener()
@@ -68,6 +66,10 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         binding.logout.setOnClickListener {
             Log.d(TAG, "login Type : $login_type")
             LoginInstance.getLoginInstance(requireContext(), requireActivity(), login_type!!).logout()
+        }
+
+        binding.deleteAccount.setOnClickListener {
+            LoginInstance.getLoginInstance(requireContext(), requireActivity(), login_type!!).deleteAccount()
         }
 
         // 파티 하나 액티비티 디자인 열람용. 추후 삭제

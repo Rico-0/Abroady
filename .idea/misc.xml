@@ -3,64 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Abroady/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2682291666666667" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/button_background_shape.xml" value="0.22135416666666666" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/camera_icon.xml" value="0.24166666666666667" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/close_icon.xml" value="0.2759259259259259" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/community_board_name_shape.xml" value="0.2861111111111111" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/community_item_shape.xml" value="0.184375" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/community_location_background.xml" value="0.23692307692307693" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/edittext_login.xml" value="0.3723076923076923" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/go_back_icon.xml" value="0.25416666666666665" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/ic_logo_abroady_big.xml" value="0.2682291666666667" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/icon_write.xml" value="0.23384615384615384" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/image_background_round.xml" value="0.24166666666666667" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/logo_abroady.xml" value="0.2598958333333333" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/party_button_selected_shape.xml" value="0.184375" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/party_button_shape.xml" value="0.25052083333333336" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/party_person_icon.xml" value="0.2759259259259259" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/search_board_shape.xml" value="0.24166666666666667" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/tap_background_colored.xml" value="0.23692307692307693" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/tap_background_default.xml" value="0.23692307692307693" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/textview_login.xml" value="0.3723076923076923" />
-        <entry key="..\:/Abroady/app/src/main/res/drawable/write_post_icon.xml" value="0.23384615384615384" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_board.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_boards.xml" value="0.2" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_create_account.xml" value="0.2" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_hot_board.xml" value="0.17806484295845998" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_main.xml" value="0.40625" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_make_new_board.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_one_party.xml" value="0.2936458975940777" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_search_board.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_search_post.xml" value="0.2" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_select_login.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_signin.xml" value="0.223731884057971" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_signup.xml" value="0.223731884057971" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_start.xml" value="0.2" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_write_post.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/activity_write_post2.xml" value="0.17933130699088146" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/custom_menu_boards_edit.xml" value="0.17395833333333333" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/custom_tab_layout.xml" value="0.4" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/custom_tablayout.xml" value="0.19429347826086957" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/fragment_boards_edit.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/fragment_chat.xml" value="0.19021739130434784" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/fragment_community.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/fragment_map.xml" value="0.19021739130434784" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/fragment_match.xml" value="0.38722826086956524" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/fragment_my.xml" value="0.19021739130434784" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_all_board.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_board_edit.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_hot_board.xml" value="0.4" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_my_boards_recommended.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_now_trending.xml" value="0.4" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_one_post_per_board.xml" value="0.4" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_party.xml" value="0.4" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/item_party_comment.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/layout/toolbar_boards.xml" value="0.17395833333333333" />
-        <entry key="..\:/Abroady/app/src/main/res/menu/boards_menu.xml" value="0.264" />
-        <entry key="..\:/Abroady/app/src/main/res/menu/one_party_menu.xml" value="0.24791666666666667" />
-        <entry key="..\:/Abroady/app/src/main/res/xml/network_security_config.xml" value="0.264945652173913" />
+        <entry key="..\:/Abroady/app/src/main/res/layout/fragment_community.xml" value="0.2266970618034448" />
       </map>
     </option>
   </component>

@@ -24,6 +24,15 @@
                 android:layout_centerInParent="true"
                 android:text="로그아웃" />
 
+            <TextView
+                android:id="@+id/delete_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/logout"
+                android:layout_marginLeft="@dimen/margin10"
+                android:text="회원탈퇴" />
+
             <ImageView
                 android:id="@+id/abroady_text"
                 android:layout_width="wrap_content"

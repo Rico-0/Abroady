@@ -420,7 +420,16 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- 여기까지 묶기 -->
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adViewBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/margin8"
+                    app:layout_constraintTop_toBottomOf="@+id/party_content_layout"
+                    app:adSize="BANNER"
+                    app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
 
                 <RelativeLayout
                     android:id="@+id/comment_sort_layout"
@@ -429,7 +438,7 @@
                     android:layout_marginTop="@dimen/margin8"
                     android:background="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/party_content_layout">
+                    app:layout_constraintTop_toBottomOf="@+id/adViewBanner">
 
                     <ImageView
                         android:id="@+id/comment_default_icon"

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.common.api.ApiException
 import com.reve.abroady.R
 import com.reve.abroady.databinding.ActivitySigninBinding
 import com.reve.abroady.ui.MainActivity
@@ -59,10 +61,9 @@ class SignInActivity : AppCompatActivity() {
             try {
                 (loginInstance as GoogleLogin).setUserData(data)
                 loginInstance.getUserInfo()
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("loginType", "google")
-                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)) // 스택에 있던 액티비티들을 지우는 역할
-                finish()
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+                val account = task.getResult(ApiException::class.java)
+
             } catch (e : Exception){
                 Log.d("LoginActivity", "구글 로그인으로 유저 정보 받아오는 중 에러 발생 : $e")
             }

@@ -108,7 +108,7 @@ class WritePostActivity : BaseActivity<ActivityWritePostBinding>() {
         builder.show()
     }
 
-    fun takePicture() {
+    private fun takePicture() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.setDataAndType(
             android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,

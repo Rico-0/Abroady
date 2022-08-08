@@ -8,6 +8,8 @@ import com.kakao.sdk.common.KakaoSdk
 import com.navercorp.nid.NaverIdLoginSDK
 import com.nhn.android.naverlogin.OAuthLogin
 import com.reve.abroady.R
+import com.reve.abroady.model.dao.LoginDao
+import com.reve.abroady.model.data.RetrofitInstance
 
 class ApplicationClass : Application() {
     companion object {

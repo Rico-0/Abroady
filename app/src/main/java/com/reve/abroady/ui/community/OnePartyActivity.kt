@@ -1,17 +1,20 @@
 package com.reve.abroady.ui.community
 
+import android.content.pm.PackageManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.reve.abroady.R
 import com.reve.abroady.base.BaseActivity
 import com.reve.abroady.databinding.ActivityOnePartyBinding
 import com.reve.abroady.model.data.party.PartyComment
 import com.reve.abroady.ui.community.adapter.PartyCommentAdapter
-import com.reve.abroady.util.recyclerViewItemDecoration.MarginItemDecoration
 
 class OnePartyActivity : BaseActivity<ActivityOnePartyBinding>() {
     override val layoutResourceId: Int
@@ -22,6 +25,7 @@ class OnePartyActivity : BaseActivity<ActivityOnePartyBinding>() {
     private var flag = true
 
     override fun initStartView() {
+        initAdMob()
         setCustomToolbar(R.id.one_party_toolbar)
         binding.buttonGoBack.setOnClickListener {
             finish()
@@ -34,6 +38,17 @@ class OnePartyActivity : BaseActivity<ActivityOnePartyBinding>() {
         }
         initComments()
         initRecyclerView()
+    }
+
+    private fun initAdMob() {
+        // 광고 초기화
+        MobileAds.initialize(this) { }
+        // 광고 띄우기
+        val adRequest = AdRequest.Builder().build()
+
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED) {
+            binding.adViewBanner.loadAd(adRequest)
+        }
     }
 
     private fun initButtonListener() {
