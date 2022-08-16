@@ -1,12 +1,13 @@
 package com.reve.abroady.util
 
-import com.reve.abroady.base.ApplicationClass.Companion.prefs
+import com.reve.abroady.presentation.base.ApplicationClass.Companion.prefs
 
 private const val LOGGED_IN_BEFORE = "logged_in_before"
 private const val LOGIN_TYPE = "login_type"
 private const val ACCESS_TOKEN = "access_token"
 private const val REFRESH_TOKEN = "refresh_token"
 private const val USER_ID = "user_id"
+private const val EMAIL = "email"
 
 object PreferenceManager {
 
@@ -34,4 +35,9 @@ object PreferenceManager {
     var refresh_token : String?
         get() = prefs.getString(REFRESH_TOKEN, null)
         set(value) = prefs.edit().putString(REFRESH_TOKEN, value).apply()
+
+    // (임시) 파이어베이스 이메일 인증 대비 사용자 이메일 주소
+    var email : String?
+        get() = prefs.getString(EMAIL, null)
+        set(value) = prefs.edit().putString(EMAIL, value).apply()
 }

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="writePostActivity"
-            type="com.reve.abroady.ui.community.WritePostActivity" />
+            type="com.reve.abroady.presentation.community.WritePostActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

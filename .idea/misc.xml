@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Abroady/app/src/main/res/layout/activity_one_party.xml" value="0.18958333333333333" />
         <entry key="..\:/Abroady/app/src/main/res/layout/fragment_community.xml" value="0.2266970618034448" />
+        <entry key="..\:/Abroady/app/src/main/res/layout/tmp_login_activity.xml" value="0.264" />
       </map>
     </option>
   </component>

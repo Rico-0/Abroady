@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:name=".base.ApplicationClass"
+        android:name="com.reve.abroady.presentation.base.ApplicationClass"
         android:allowBackup="false"
         android:icon="@drawable/logo_abroady"
         android:usesCleartextTraffic="true"
@@ -20,24 +20,24 @@
             android:exported="true" /> -->
 
         <!-- Post -->
-        <activity android:name=".ui.community.WritePostActivity" />
+        <activity android:name=".presentation.community.WritePostActivity" />
 
         <!-- Party -->
-        <activity android:name=".ui.community.OnePartyActivity"/>
+        <activity android:name=".presentation.community.OnePartyActivity"/>
 
         <!-- Sign In & Up -->
-        <activity android:name=".ui.login.SignUpActivity" />
-        <activity android:name=".ui.login.SignInActivity" />
+        <activity android:name=".presentation.login.SignUpActivity" />
+        <activity android:name=".presentation.login.SignInActivity" />
 
         <!-- Board -->
-        <activity android:name=".ui.community.MakeNewBoardActivity" />
-        <activity android:name=".ui.community.SearchBoardActivity" />
-        <activity android:name=".ui.community.BoardsEditActivity" />
-        <activity android:name=".ui.community.BoardsActivity" />
-        <activity android:name=".ui.community.BoardActivity" />
+        <activity android:name=".presentation.community.MakeNewBoardActivity" />
+        <activity android:name=".presentation.community.SearchBoardActivity" />
+        <activity android:name=".presentation.community.BoardsEditActivity" />
+        <activity android:name=".presentation.community.BoardsActivity" />
+        <activity android:name=".presentation.community.BoardActivity" />
 
         <activity
-            android:name=".ui.start.StartActivity"
+            android:name=".presentation.start.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +47,7 @@
         </activity>
 
         <activity
-            android:name=".ui.login.LoginSelectActivity"
+            android:name=".presentation.login.LoginSelectActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -61,8 +61,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".presentation.login.TmpLoginSignUpActivity" />
+
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true" />
 
         <meta-data
