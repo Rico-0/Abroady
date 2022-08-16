@@ -28,6 +28,8 @@
         <!-- Sign In & Up -->
         <activity android:name=".presentation.login.SignUpActivity" />
         <activity android:name=".presentation.login.SignInActivity" />
+        <activity android:name=".presentation.login.TmpSignInActivity" />
+        <activity android:name=".presentation.login.TmpSignUpActivity" />
 
         <!-- Board -->
         <activity android:name=".presentation.community.MakeNewBoardActivity" />
@@ -60,8 +62,6 @@
                     android:scheme="kakao{@string/kakao_native_key}" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".presentation.login.TmpLoginSignUpActivity" />
 
         <activity
             android:name=".presentation.MainActivity"

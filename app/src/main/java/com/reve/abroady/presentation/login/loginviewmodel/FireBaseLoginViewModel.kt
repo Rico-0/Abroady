@@ -32,7 +32,6 @@ class FireBaseLoginViewModel : BaseViewModel() {
                     }
                 }
             }
-
     }
 
     fun login(email: String, password: String) {

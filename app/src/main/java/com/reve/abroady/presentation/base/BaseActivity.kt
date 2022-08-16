@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.reve.abroady.presentation.MainActivity
@@ -30,6 +31,8 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
 
         // 데이터 바인딩 사용 : Activity에서 사용하는 경우 DataBindingUtil.setContentView를 사용한다.
         binding = DataBindingUtil.setContentView(this, layoutResourceId)
+        // 다크모드 비활성화
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         initStartView()
     }
 

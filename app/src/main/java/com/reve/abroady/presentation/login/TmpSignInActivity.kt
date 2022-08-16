@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import com.reve.abroady.R
@@ -14,29 +15,25 @@ import com.reve.abroady.presentation.base.BaseActivity
 import com.reve.abroady.presentation.login.loginviewmodel.FireBaseLoginViewModel
 import com.reve.abroady.util.Validation.isEmailValid
 import com.reve.abroady.util.Validation.isPasswordValid
-import com.reve.abroady.util.Validation.isSamePassword
 import org.koin.android.ext.android.inject
 
-class TmpLoginSignUpActivity : BaseActivity<TmpLoginActivityBinding>() {
+class TmpSignInActivity : BaseActivity<TmpLoginActivityBinding>() {
 
     private val fireBaseLoginViewModel : FireBaseLoginViewModel by inject()
 
     override val layoutResourceId: Int
         get() = R.layout.tmp_login_activity
 
-    // TODO : 로그인 / 회원가입 분기 처리 필요
+    companion object {
+        private const val NOT_CONNECTED = "A network error (such as timeout, interrupted connection or unreachable host) has occurred."
+        private const val PASSWORD_NOT_SAME = "The password is invalid or the user does not have a password."
+        private const val NOT_EXIST_USER = "There is no user record corresponding to this identifier. The user may have been deleted."
+    }
+
     override fun initStartView() {
+        observeAuthState()
         addValidationCheckListener(binding.inputEmail)
         addValidationCheckListener(binding.inputPassword)
-        binding.signupButton.setOnClickListener {
-            val email = binding.inputEmail.text.toString()
-            val password = binding.inputPassword.text.toString()
-            val confirmPassword = binding.confirmPassword.text.toString()
-            if (isEmailValid(email) && isPasswordValid(password) && isSamePassword(password, confirmPassword))
-                fireBaseLoginViewModel.register(email, password)
-            else
-                showValidValueDialog()
-        }
         binding.loginButton.setOnClickListener {
             val email = binding.inputEmail.text.toString()
             val password = binding.inputPassword.text.toString()
@@ -45,8 +42,6 @@ class TmpLoginSignUpActivity : BaseActivity<TmpLoginActivityBinding>() {
             else
                 showValidValueDialog()
         }
-        fireBaseLoginViewModel.isAlreadyLogin() // 이미 로그인한 유저가 존재할 경우 MainActivity로 넘어가도록 함
-        observeAuthState()
     }
 
     private fun showValidValueDialog() {
@@ -60,25 +55,26 @@ class TmpLoginSignUpActivity : BaseActivity<TmpLoginActivityBinding>() {
     }
 
     private fun observeAuthState() {
-        fireBaseLoginViewModel.authState.observe(this, { authState ->
-            if (authState == AuthState.Success) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                finish()
-            } else if (authState == AuthState.AuthError("The email address is already in use by another account.")) {
-                Toast.makeText(
-                    this,
-                    "The email address is already in use by another account.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else if (authState == AuthState.AuthError()) {
-                Toast.makeText(
-                    this,
-                    "Unknown error occured when logging in. Check your Internet connection or try later.",
-                    Toast.LENGTH_SHORT
-                ).show()
+        fireBaseLoginViewModel.authState.observe(this) { authState ->
+            when (authState) {
+                is AuthState.Success -> {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                    finish()
+                }
+                is AuthState.AuthError -> {
+                    if (authState.message.equals(PASSWORD_NOT_SAME))
+                        Toast.makeText(this, "Please check your password.", Toast.LENGTH_SHORT).show()
+                    else if (authState.message.equals(NOT_CONNECTED)) {
+                        Toast.makeText(this, "Please check your Internet connection.", Toast.LENGTH_SHORT).show()
+                    } else if (authState.message.equals(NOT_EXIST_USER)) {
+                        Toast.makeText(this, "The user using this email doesn't exist.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Log.e(TAG, "login error : ${authState.message}")
+                    }
+                }
             }
-        })
+        }
     }
 
     private fun addValidationCheckListener(editText : EditText) {
@@ -94,10 +90,6 @@ class TmpLoginSignUpActivity : BaseActivity<TmpLoginActivityBinding>() {
                 val passwordState = isPasswordValid(binding.inputPassword.text.toString())
                 if (!passwordState) {
                     //binding.inputPasswordState.text = "not valid password"
-                }
-                val confirmState = isSamePassword(binding.inputPassword.text.toString(), binding.confirmPassword.text.toString())
-                if (!confirmState) {
-                    //binding.confirmState.text = "password isn't same"
                 }
             }
         })

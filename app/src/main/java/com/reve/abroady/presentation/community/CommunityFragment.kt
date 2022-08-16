@@ -1,9 +1,6 @@
 package com.reve.abroady.presentation.community
 
 import android.content.Intent
-import android.util.Log
-import android.widget.Toast
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.reve.abroady.R
@@ -14,17 +11,14 @@ import com.reve.abroady.data.entity.post.HotBoard
 import com.reve.abroady.data.entity.post.NowTrending
 import com.reve.abroady.data.entity.party.Party
 import com.reve.abroady.data.entity.post.OnePostPerBoard
-import com.reve.abroady.presentation.MainActivity
 import com.reve.abroady.presentation.community.adapter.HotBoardAdapter
 import com.reve.abroady.presentation.community.adapter.NowTrendingAdapter
 import com.reve.abroady.presentation.community.adapter.OnePostPerBoardAdapter
 import com.reve.abroady.presentation.community.adapter.PartyAdapter
-import com.reve.abroady.presentation.login.TmpLoginSignUpActivity
+import com.reve.abroady.presentation.login.LoginSelectActivity
+import com.reve.abroady.presentation.login.TmpSignUpActivity
 import com.reve.abroady.presentation.login.loginviewmodel.FireBaseLoginViewModel
-import com.reve.abroady.util.LoginInstance
-import com.reve.abroady.util.PreferenceManager.login_type
 import com.reve.abroady.util.recyclerViewItemDecoration.MarginItemDecoration
-import com.reve.abroady.presentation.viewmodel.MainViewModel
 import org.koin.android.ext.android.inject
 import kotlin.collections.ArrayList
 
@@ -58,13 +52,13 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     }
 
     private fun observeAuthState() {
-        fireBaseLoginViewModel.authState.observe(this, { authState ->
+        fireBaseLoginViewModel.authState.observe(this) { authState ->
             if (authState == AuthState.Idle) {
-                val intent = Intent(requireActivity(), TmpLoginSignUpActivity::class.java)
+                val intent = Intent(requireActivity(), LoginSelectActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 requireActivity().finish()
             }
-        })
+        }
     }
 
     private fun setUserData() {
