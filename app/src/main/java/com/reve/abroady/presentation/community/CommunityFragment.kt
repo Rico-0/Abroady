@@ -2,20 +2,24 @@ package com.reve.abroady.presentation.community
 
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.reve.abroady.R
+import com.reve.abroady.data.AuthState
 import com.reve.abroady.presentation.base.BaseFragment
 import com.reve.abroady.databinding.FragmentCommunityBinding
 import com.reve.abroady.data.entity.post.HotBoard
 import com.reve.abroady.data.entity.post.NowTrending
 import com.reve.abroady.data.entity.party.Party
 import com.reve.abroady.data.entity.post.OnePostPerBoard
+import com.reve.abroady.presentation.MainActivity
 import com.reve.abroady.presentation.community.adapter.HotBoardAdapter
 import com.reve.abroady.presentation.community.adapter.NowTrendingAdapter
 import com.reve.abroady.presentation.community.adapter.OnePostPerBoardAdapter
 import com.reve.abroady.presentation.community.adapter.PartyAdapter
+import com.reve.abroady.presentation.login.TmpLoginSignUpActivity
 import com.reve.abroady.presentation.login.loginviewmodel.FireBaseLoginViewModel
 import com.reve.abroady.util.LoginInstance
 import com.reve.abroady.util.PreferenceManager.login_type
@@ -37,26 +41,35 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
         private val auth = FirebaseAuth.getInstance()
     }
 
-    var flag : Boolean = true
-
     private val fireBaseLoginViewModel : FireBaseLoginViewModel by inject()
+
+    var flag : Boolean = true
 
     // fragment가 activity에 종속되어 있으므로 Fragment가 생성된 Activity의 Lifecycle에 ViewModel 종속시킴
     // 이로 인해 같은 Activity(ViewModelStoreOwner) 를 공유하는 Fragment 간의 데이터 전달이 가능해짐
    // private val mainViewModel : MainViewModel by activityViewModels()
 
     override fun initStartView() {
-        binding.userName.text = auth.currentUser?.email ?: "Unknown user"
         initClickListener()
         initListData()
         initRecyclerView()
-        observeUserData()
+        setUserData()
+        observeAuthState()
     }
 
-    private fun observeUserData() {
-        fireBaseLoginViewModel.userName.observe(viewLifecycleOwner, {
-            binding.userName.text = it
+    private fun observeAuthState() {
+        fireBaseLoginViewModel.authState.observe(this, { authState ->
+            if (authState == AuthState.Idle) {
+                val intent = Intent(requireActivity(), TmpLoginSignUpActivity::class.java)
+                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                requireActivity().finish()
+            }
         })
+    }
+
+    private fun setUserData() {
+        val email = auth.currentUser?.email
+        binding.userName.text = email?.substring(0, email?.indexOf("@")) + "님"
     }
 
     private fun initClickListener() {

@@ -23,8 +23,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abroady_logo"
+            android:layout_marginTop="@dimen/margin100"
             android:hint="email"/>
 
         <EditText
@@ -37,11 +37,21 @@
             app:layout_constraintTop_toBottomOf="@+id/input_email"
             android:hint="password"/>
 
+        <EditText
+            android:id="@+id/confirm_password"
+            android:layout_width="@dimen/margin300"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin30"
+            app:layout_constraintTop_toBottomOf="@+id/input_password"
+            android:hint="confirm password"/>
+
         <TextView
-            android:id="@+id/sign_up_login_button"
+            android:id="@+id/signup_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="log in or sign up"
+            android:text="sign up"
             android:textSize="@dimen/dimen20"
             android:fontFamily="@font/notosanskr_regular"
             android:background="@drawable/button_square_colored"
@@ -50,7 +60,24 @@
             android:padding="@dimen/margin10"
             android:includeFontPadding="false"
             android:layout_marginTop="@dimen/margin100"
-            app:layout_constraintTop_toBottomOf="@+id/input_password"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="log in"
+            android:textSize="@dimen/dimen20"
+            android:fontFamily="@font/notosanskr_regular"
+            android:background="@drawable/button_square_colored"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/margin10"
+            android:includeFontPadding="false"
+            android:layout_marginTop="@dimen/margin20"
+            app:layout_constraintTop_toBottomOf="@+id/signup_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

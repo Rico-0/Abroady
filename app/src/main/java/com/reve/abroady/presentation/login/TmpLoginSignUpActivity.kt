@@ -1,18 +1,21 @@
 package com.reve.abroady.presentation.login
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Patterns
 import android.widget.EditText
 import android.widget.Toast
 import com.reve.abroady.R
-import com.reve.abroady.presentation.base.BaseActivity
+import com.reve.abroady.data.AuthState
 import com.reve.abroady.databinding.TmpLoginActivityBinding
 import com.reve.abroady.presentation.MainActivity
+import com.reve.abroady.presentation.base.BaseActivity
 import com.reve.abroady.presentation.login.loginviewmodel.FireBaseLoginViewModel
+import com.reve.abroady.util.Validation.isEmailValid
+import com.reve.abroady.util.Validation.isPasswordValid
+import com.reve.abroady.util.Validation.isSamePassword
 import org.koin.android.ext.android.inject
-import java.util.regex.Pattern
 
 class TmpLoginSignUpActivity : BaseActivity<TmpLoginActivityBinding>() {
 
@@ -25,27 +28,55 @@ class TmpLoginSignUpActivity : BaseActivity<TmpLoginActivityBinding>() {
     override fun initStartView() {
         addValidationCheckListener(binding.inputEmail)
         addValidationCheckListener(binding.inputPassword)
-        binding.signUpLoginButton.setOnClickListener {
+        binding.signupButton.setOnClickListener {
             val email = binding.inputEmail.text.toString()
             val password = binding.inputPassword.text.toString()
-            val inputState = checkEmailAndPassword(email, password)
-            if (inputState == "OK") {
+            val confirmPassword = binding.confirmPassword.text.toString()
+            if (isEmailValid(email) && isPasswordValid(password) && isSamePassword(password, confirmPassword))
                 fireBaseLoginViewModel.register(email, password)
-            }
             else
-                Toast.makeText(this, inputState, Toast.LENGTH_SHORT).show()
+                showValidValueDialog()
         }
-        observeUserData()
+        binding.loginButton.setOnClickListener {
+            val email = binding.inputEmail.text.toString()
+            val password = binding.inputPassword.text.toString()
+            if (isEmailValid(email) && isPasswordValid(password))
+                fireBaseLoginViewModel.login(email, password)
+            else
+                showValidValueDialog()
+        }
+        fireBaseLoginViewModel.isAlreadyLogin() // 이미 로그인한 유저가 존재할 경우 MainActivity로 넘어가도록 함
+        observeAuthState()
     }
 
-    private fun observeUserData() {
-        fireBaseLoginViewModel.userName.observe(this, { userName ->
-            if (!userName.isNullOrEmpty()) {
+    private fun showValidValueDialog() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Invalid email or password")
+            .setMessage("Please input valid email or password.\nPassword should be 8 ~ 20 characters, including at least one number and one special character.")
+            .setPositiveButton("I see") { dialog, _ ->
+                dialog?.dismiss()
+            }
+        dialog.show()
+    }
+
+    private fun observeAuthState() {
+        fireBaseLoginViewModel.authState.observe(this, { authState ->
+            if (authState == AuthState.Success) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
-            } else {
-                Toast.makeText(this, "Unknown error occured when logging in. Check your Internet connection or try later.", Toast.LENGTH_SHORT).show()
+            } else if (authState == AuthState.AuthError("The email address is already in use by another account.")) {
+                Toast.makeText(
+                    this,
+                    "The email address is already in use by another account.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (authState == AuthState.AuthError()) {
+                Toast.makeText(
+                    this,
+                    "Unknown error occured when logging in. Check your Internet connection or try later.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         })
     }
@@ -56,24 +87,20 @@ class TmpLoginSignUpActivity : BaseActivity<TmpLoginActivityBinding>() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
             // 이메일, 비밀번호 입력의 변경 사항을 실시간으로 알려줌
             override fun afterTextChanged(s: Editable?) {
-                val inputState = checkEmailAndPassword(binding.inputEmail.text.toString(), binding.inputPassword.text.toString())
-                // binding.inputEmailState.text = inputState
-                // binding.inputPasswordState.text = inputState
+                val emailState = isEmailValid(binding.inputEmail.text.toString())
+                if (!emailState) {
+                    //binding.inputEmailState.text = "not valid email"
+                }
+                val passwordState = isPasswordValid(binding.inputPassword.text.toString())
+                if (!passwordState) {
+                    //binding.inputPasswordState.text = "not valid password"
+                }
+                val confirmState = isSamePassword(binding.inputPassword.text.toString(), binding.confirmPassword.text.toString())
+                if (!confirmState) {
+                    //binding.confirmState.text = "password isn't same"
+                }
             }
         })
-    }
-
-    // 이메일, 비밀번호 유효성 검사
-    private fun checkEmailAndPassword(email : String, password : String) : String {
-        val emailPattern = Patterns.EMAIL_ADDRESS
-        val emailMatcher = emailPattern.matcher(email)
-        val pwRegex =  "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*#?&.])[A-Za-z[0-9]$@$!%*#?&.]{8,20}$" // 8 ~ 20자리 사이의 비밀번호. 영문, 숫자, 특수문자 포함
-        if (email.isNullOrEmpty() || !(emailMatcher.find())) {
-            return "Please check your email address."
-        } else if (password.isNullOrEmpty() || !(Pattern.matches(pwRegex, password))) {
-            return "Please check your password. (At least 8 characters, include 1 number and 1 special character)"
-        } else
-            return "OK"
     }
 
     /* 구글 로그인 과정
