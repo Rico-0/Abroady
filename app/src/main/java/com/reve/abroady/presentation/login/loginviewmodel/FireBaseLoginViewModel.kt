@@ -13,6 +13,11 @@ class FireBaseLoginViewModel : BaseViewModel() {
     private val _authState by lazy { MutableLiveData<AuthState>(AuthState.Idle) }
     val authState: LiveData<AuthState> = _authState
 
+    // 인증 상태가 Error인 경우, 다른 프래그먼트에서 로그인 화면으로 돌아갈 시 error 메시지 출력되는 경우 방지
+    fun setAuthStateToIdle() {
+        _authState.value = AuthState.Idle
+    }
+
     fun isAlreadyLogin() {
         FirebaseAuth.getInstance().currentUser?.let {
             _authState.value = AuthState.Success

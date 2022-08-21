@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialog_root"
+        android:layout_width="@dimen/dialog_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_background">
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin20"
+            android:fontFamily="@font/notosanskr_bold"
+            android:includeFontPadding="false"
+            android:textColor="@color/letter"
+            android:textSize="@dimen/dimen17"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/error" />
+
+        <TextView
+            android:id="@+id/dialog_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin10"
+            android:fontFamily="@font/notosanskr_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/margin5"
+            android:textColor="@color/letter"
+            android:textSize="@dimen/dimen13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_title"
+            tools:text="@string/login_error_message" />
+
+        <ImageView
+            android:id="@+id/dialog_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin15"
+            android:src="@drawable/dialog_line"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_content" />
+
+        <TextView
+            android:id="@+id/dialog_accept_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:padding="@dimen/margin10"
+            android:text="@string/accept"
+            android:textColor="@color/main_blue"
+            android:textSize="@dimen/dimen17"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_line" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -17,7 +17,6 @@ import com.reve.abroady.data.entity.login.SignUpUserData
 import com.reve.abroady.data.entity.login.SignUpUserDataForSend
 import com.reve.abroady.data.entity.login.SocialLogin
 import com.reve.abroady.presentation.MainActivity
-import com.reve.abroady.presentation.login.LoginSelectActivity
 import com.reve.abroady.util.PreferenceManager.access_token
 import com.reve.abroady.util.PreferenceManager.is_loggedIn_before
 import com.reve.abroady.util.PreferenceManager.login_type

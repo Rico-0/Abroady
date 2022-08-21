@@ -13,11 +13,19 @@
     <color name="logo">#7A89F9</color>
     <color name="hr_gray">#EFEFEF</color>
     <color name="gray">#DADADA</color>
-    <color name="line">#C9CACF</color>
+    <color name="gray_border">#E6E6E6</color>
+    <color name="darkgray_ham">#C9CACF</color>
     <color name="dark_gray">#B6B6B6</color>
-    <color name="dark">#1F2027</color>
+    <color name="gray_letter">#A5A5AA</color>
+    <color name="letter">#1F2027</color>
+    <color name="black_letter">#1F2027</color>
     <color name="background">#F5F5F5</color>
     <color name="new_noti">#E8EAFC</color>
     <color name="notification">#6DA3FF</color>
+    <color name="main_unselected">#ABB4FF</color>
+    <color name="main_blue">#6578FF</color>
+    <color name="orange">#F16D44</color>
+    <color name="red">#FB5C4A</color>
+    <color name="yellow">#FFC02D</color>
 
 </resources>

@@ -53,15 +53,15 @@ class OnePartyActivity : BaseActivity<ActivityOnePartyBinding>() {
     private fun initButtonListener() {
         if (flag) {
             binding.commentDefaultIcon.setImageResource(R.drawable.icon_comment_circle_colored)
-            binding.commentDefaultButton.setTextColor(ContextCompat.getColor(this, R.color.dark))
+            binding.commentDefaultButton.setTextColor(ContextCompat.getColor(this, R.color.black_letter))
             binding.commentRecentIcon.setImageResource(R.drawable.icon_comment_circle_default)
-            binding.commentRecentButton.setTextColor(ContextCompat.getColor(this, R.color.line))
+            binding.commentRecentButton.setTextColor(ContextCompat.getColor(this, R.color.darkgray_ham))
             flag = false
         } else {
             binding.commentDefaultIcon.setImageResource(R.drawable.icon_comment_circle_default)
-            binding.commentDefaultButton.setTextColor(ContextCompat.getColor(this, R.color.line))
+            binding.commentDefaultButton.setTextColor(ContextCompat.getColor(this, R.color.darkgray_ham))
             binding.commentRecentIcon.setImageResource(R.drawable.icon_comment_circle_colored)
-            binding.commentRecentButton.setTextColor(ContextCompat.getColor(this, R.color.dark))
+            binding.commentRecentButton.setTextColor(ContextCompat.getColor(this, R.color.black_letter))
             flag = true
         }
     }

@@ -59,7 +59,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="having japanese dishes"
-                android:textColor="@color/dark"
+                android:textColor="@color/black_letter"
                 android:textSize="12sp" />
 
         </RelativeLayout>
@@ -90,7 +90,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="Donburi Mono"
-                android:textColor="@color/dark"
+                android:textColor="@color/black_letter"
                 android:textSize="12sp" />
 
         </RelativeLayout>
@@ -120,7 +120,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="3/4 participating"
-                android:textColor="@color/dark"
+                android:textColor="@color/black_letter"
                 android:textSize="12sp" />
 
         </RelativeLayout>

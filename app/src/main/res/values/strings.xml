@@ -1,20 +1,44 @@
 <resources>
-    <!-- 로그인 화면 string -->
+    <!-- 로그인 화면 -->
     <string name="app_name">Abroady</string>
     <string name="welcome_back">Welcome back</string>
-    <string name="user_id">User ID</string>
+    <string name="user_email">Email</string>
     <string name="user_password">Password</string>
     <string name="sign_in">Sign in</string>
     <string name="create_your_account">Create your account</string>
     <string name="already_have_account">Already have account?</string>
-    <string name="forgot_information">Forgot ID/Password?</string>
-    <string name="hr_forgot_and_continue">────────── Or ──────────</string>
+    <string name="forgot_password">Forgot Password?</string>
     <string name="select_login">Continue with social media</string>
-    <string name="no_account">Don\'t have any account?</string>
+    <string name="no_account">Don\'t have an account?</string>
     <string name="sign_up">Sign up</string>
     <string name="login_description_title">Log in to see more</string>
-    <string name="login_description_content_1">Abroady is waiting for you</string>
-    <string name="login_description_content_2">with various articles.</string>
+    <string name="login_description_content">Abroady is waiting for you with various articles.</string>
+
+    <!-- login error dialog -->
+    <string name="error">Error</string>
+    <string name="login_error_message">The email address or password you entered is incorrect.</string>
+    <string name="accept">OK</string>
+
+    <!-- forgot password -->
+    <string name="forgot_password_enter_email">Enter the email address associated with your account.</string>
+    <string name="find_password_via_email">You will receive a link to reset your password via email.</string>
+    <string name="link_expire_info">Please note that the link will expire in 24 hours.</string>
+    <string name="send">Send</string>
+    <string name="back_to_login">Back to log in</string>
+
+    <!-- forgot password dialog -->
+    <string name="invalid_email">"You have entered an invalid email address."</string>
+    <string name="not_exist_email">The email address you entered doesn\'t belong to an account.</string>
+
+    <!-- terms of service -->
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="terms_of_service_description">In order to start using Abroady,\nPlease agree to our Terms &amp; Conditions first.</string>
+    <string name="accept_all">Accept all</string>
+    <string name="required">[Required]</string>
+    <string name="terms_conditions">Consent to terms and conditions</string>
+    <string name="collect_use_personal_information">Consent to collect and use personal information</string>
+    <string name="continue_sign_up">Continue</string>
+
 
     <!-- community 화면 string -->
     <string name="community">Community</string>

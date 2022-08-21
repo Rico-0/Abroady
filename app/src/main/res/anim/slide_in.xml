@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    duration : 동작 시간
+    fromXDelta : 초기 X 좌표 위치
+    toXDelta : 애니메이션 완료 후 X 좌표 위치
+    interpolator : 애니메이션 효과
+
+* XDelta의 기준은 화면 좌상단이다. 디스플레이 기준 좌상단은 0%.
+horizon_enter를 예로 들면, 화면은 우측에서 좌측으로 이동하며 등장한다.
+- fromXDelta(우측) = 100%
+- toXDelta(좌측[디스플레이]) = 0%
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator">
+    <translate
+        android:duration="500"
+        android:fromXDelta="100%"
+        android:fromYDelta="0%"
+        android:toXDelta="0"
+        android:toYDelta="0%" />
+</set>

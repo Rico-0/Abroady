@@ -15,8 +15,7 @@ import com.reve.abroady.presentation.community.adapter.HotBoardAdapter
 import com.reve.abroady.presentation.community.adapter.NowTrendingAdapter
 import com.reve.abroady.presentation.community.adapter.OnePostPerBoardAdapter
 import com.reve.abroady.presentation.community.adapter.PartyAdapter
-import com.reve.abroady.presentation.login.LoginSelectActivity
-import com.reve.abroady.presentation.login.TmpSignUpActivity
+import com.reve.abroady.presentation.login.activity.LoginActivity
 import com.reve.abroady.presentation.login.loginviewmodel.FireBaseLoginViewModel
 import com.reve.abroady.util.recyclerViewItemDecoration.MarginItemDecoration
 import org.koin.android.ext.android.inject
@@ -54,7 +53,7 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
     private fun observeAuthState() {
         fireBaseLoginViewModel.authState.observe(this) { authState ->
             if (authState == AuthState.Idle) {
-                val intent = Intent(requireActivity(), LoginSelectActivity::class.java)
+                val intent = Intent(requireActivity(), LoginActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 requireActivity().finish()
             }
@@ -108,14 +107,14 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding>() {
             binding.myPartyButton.setBackgroundResource(R.drawable.tap_background_colored)
             binding.myPartyButton.setTextColor(resources.getColor(R.color.white))
             binding.hotPartyButton.setBackgroundResource(R.drawable.tap_background_default)
-            binding.hotPartyButton.setTextColor(resources.getColor(R.color.line))
+            binding.hotPartyButton.setTextColor(resources.getColor(R.color.darkgray_ham))
             flag = false
         }
         else {
             binding.hotPartyButton.setBackgroundResource(R.drawable.tap_background_colored)
             binding.hotPartyButton.setTextColor(resources.getColor(R.color.white))
             binding.myPartyButton.setBackgroundResource(R.drawable.tap_background_default)
-            binding.myPartyButton.setTextColor(resources.getColor(R.color.line))
+            binding.myPartyButton.setTextColor(resources.getColor(R.color.darkgray_ham))
             flag = true
         }
     }

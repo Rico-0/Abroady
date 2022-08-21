@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="termsOfServiceFragment"
+            type="com.reve.abroady.presentation.login.fragment.TermsOfServiceFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_terms_of_services_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin45"
+            android:src="@drawable/button_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin45"
+            android:layout_marginRight="@dimen/margin20"
+            android:src="@drawable/close_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_up_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin50"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/sign_up"
+            android:textColor="@color/gray_letter"
+            android:textSize="@dimen/dimen15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_button" />
+
+        <TextView
+            android:id="@+id/terms_of_service_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin3"
+            android:fontFamily="@font/notosanskr_medium"
+            android:includeFontPadding="false"
+            android:text="@string/terms_of_service"
+            android:textColor="@color/black_letter"
+            android:textSize="@dimen/dimen25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_text" />
+
+        <TextView
+            android:id="@+id/terms_of_service_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin15"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="@string/terms_of_service_description"
+            android:textColor="@color/black_letter"
+            android:textSize="@dimen/dimen15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/terms_of_service_text" />
+
+        <LinearLayout
+            android:id="@+id/terms_of_service_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin100"
+            android:orientation="vertical"
+            android:padding="@dimen/margin20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/terms_of_service_description_text">
+
+            <RelativeLayout
+                android:id="@+id/accept_all_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/accept_all_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/button_terms_of_services_radio_circle_default" />
+
+                <TextView
+                    android:id="@+id/accept_all_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin8"
+                    android:layout_toRightOf="@+id/accept_all_button"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:text="@string/accept_all"
+                    android:textColor="@color/black_letter"
+                    android:textSize="@dimen/dimen15" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/line_divide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin7"
+                android:src="@drawable/line_boundary"
+                app:layout_constraintTop_toBottomOf="@+id/accept_all_layout" />
+
+            <RelativeLayout
+                android:id="@+id/terms_conditions_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5">
+
+                <ImageView
+                    android:id="@+id/terms_conditions_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/button_terms_of_services_radio_circle_default" />
+
+                <TextView
+                    android:id="@+id/terms_conditions_required_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin8"
+                    android:layout_toRightOf="@+id/terms_conditions_button"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="@string/required"
+                    android:textColor="@color/main_blue"
+                    android:textSize="@dimen/dimen14" />
+
+                <TextView
+                    android:id="@+id/terms_conditions_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_toRightOf="@+id/terms_conditions_required_text"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="@string/terms_conditions"
+                    android:textColor="@color/black_letter"
+                    android:textSize="@dimen/dimen14" />
+
+                <ImageView
+                    android:id="@+id/terms_conditions_show_content_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin10"
+                    android:src="@drawable/button_more_gray" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/collect_use_personal_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin5">
+
+                <ImageView
+                    android:id="@+id/collect_use_personal_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/button_terms_of_services_radio_circle_default" />
+
+                <TextView
+                    android:id="@+id/collect_use_personal_required_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin8"
+                    android:layout_toRightOf="@+id/collect_use_personal_button"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="@string/required"
+                    android:textColor="@color/main_blue"
+                    android:textSize="@dimen/dimen14" />
+
+                <TextView
+                    android:id="@+id/collect_use_personal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_toRightOf="@+id/collect_use_personal_required_text"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:text="@string/collect_use_personal_information"
+                    android:textColor="@color/black_letter"
+                    android:textSize="@dimen/dimen14" />
+
+                <ImageView
+                    android:id="@+id/collect_use_personal_show_content_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin10"
+                    android:src="@drawable/button_more_gray" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/continue_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_terms_of_services_continue_light"
+            android:clickable="@{termsOfServiceFragment.isAllAcceptChecked ? true : false}"
+            android:fontFamily="@font/notosanskr_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/continue_sign_up"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/terms_of_service_content_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

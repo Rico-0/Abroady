@@ -19,6 +19,7 @@
     <dimen name="margin40">40dp</dimen>
     <dimen name="marginTop_sign_in">41dp</dimen>
     <dimen name="marginTop_close_button">44dp</dimen>
+    <dimen name="dialog_line_vertical_height">44dp</dimen>
     <dimen name="margin45">45dp</dimen>
     <dimen name="margin50">50dp</dimen>
     <dimen name="margin55">55dp</dimen>
@@ -33,9 +34,13 @@
     <dimen name="margin120">120dp</dimen>
     <dimen name="margin130">130dp</dimen>
     <dimen name="margin150">150dp</dimen>
+    <dimen name="margin170">170dp</dimen>
+    <dimen name="margin190">190dp</dimen>
     <dimen name="margin200">200dp</dimen>
     <dimen name="party_item_width">220dp</dimen>
+    <dimen name="margin230">230dp</dimen>
     <dimen name="margin255">255dp</dimen>
+    <dimen name="dialog_width">268dp</dimen>
     <dimen name="margin270">270dp</dimen>
     <dimen name="margin300">300dp</dimen>
     <dimen name="margin440">440dp</dimen>
@@ -43,11 +48,14 @@
     <dimen name="dimen10">10sp</dimen>
     <dimen name="dimen12">12sp</dimen>
     <dimen name="dimen13">13sp</dimen>
+    <dimen name="dimen14">14sp</dimen>
     <dimen name="dimen15">15sp</dimen>
     <dimen name="dimen16">16sp</dimen>
+    <dimen name="dimen17">17sp</dimen>
     <dimen name="dimen18">18sp</dimen>
     <dimen name="dimen20">20sp</dimen>
     <dimen name="dimen22">22sp</dimen>
+    <dimen name="dimen25">25sp</dimen>
     <dimen name="dimen26">26sp</dimen>
     <dimen name="dimen30">30sp</dimen>
     <dimen name="dimen50">50sp</dimen>

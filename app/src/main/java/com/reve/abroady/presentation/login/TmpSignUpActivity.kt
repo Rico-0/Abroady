@@ -13,6 +13,7 @@ import com.reve.abroady.data.AuthState
 import com.reve.abroady.presentation.MainActivity
 import com.reve.abroady.presentation.base.BaseActivity
 import com.reve.abroady.presentation.login.loginviewmodel.FireBaseLoginViewModel
+import com.reve.abroady.util.ActivityList
 import com.reve.abroady.util.Validation.isEmailValid
 import com.reve.abroady.util.Validation.isPasswordValid
 import com.reve.abroady.util.Validation.isSamePassword
@@ -111,4 +112,10 @@ class TmpSignUpActivity : BaseActivity<TmpSignupActivityBinding>() {
             }
         }
     } */
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ActivityList.actList.remove(this)
+    }
+
 }

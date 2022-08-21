@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/activity_select_login_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/activity_select_login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin45"
+                android:layout_marginRight="@dimen/margin20"
+                android:src="@drawable/close_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/abroady_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin40"
+                android:src="@drawable/symbol_abroady_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/close_button" />
+
+            <TextView
+                android:id="@+id/login_description_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin40"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:text="@string/login_description_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/abroady_logo" />
+
+            <TextView
+                android:id="@+id/login_description_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/login_description_content"
+                android:textColor="@color/letter"
+                android:textSize="@dimen/dimen13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login_description_title" />
+
+            <RelativeLayout
+                android:id="@+id/input_email_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin40"
+                android:background="@drawable/button_square_default"
+                android:padding="@dimen/margin5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_description_content">
+
+                <EditText
+                    android:id="@+id/input_email_text"
+                    android:layout_width="@dimen/margin270"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10"
+                    android:background="@null"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="@string/user_email"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:textSize="@dimen/dimen13" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/input_password_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10"
+                android:background="@drawable/button_square_default"
+                android:padding="@dimen/margin5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_email_layout">
+
+                <EditText
+                    android:id="@+id/input_password_text"
+                    android:layout_width="@dimen/margin270"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin10"
+                    android:background="@null"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="@string/user_password"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textSize="@dimen/dimen13" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/forgot_password_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin10"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="@string/forgot_password"
+                android:textColor="@color/main_blue"
+                android:textSize="@dimen/dimen12"
+                app:layout_constraintEnd_toEndOf="@+id/input_password_layout"
+                app:layout_constraintTop_toBottomOf="@+id/input_password_layout" />
+
+
+            <TextView
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin30"
+                android:background="@drawable/button_square_colored_light"
+                android:fontFamily="@font/notosanskr_regular"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/sign_in"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/forgot_password_text" />
+
+            <RelativeLayout
+                android:id="@+id/signup_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin120"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_button">
+
+                <TextView
+                    android:id="@+id/no_account_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/no_account"
+                    android:textColor="@color/gray_letter"
+                    android:textSize="@dimen/dimen12" />
+
+                <TextView
+                    android:id="@+id/sign_up_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin8"
+                    android:layout_toRightOf="@+id/no_account_text"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/sign_up"
+                    android:textColor="@color/letter"
+                    android:textSize="@dimen/dimen12" />
+
+            </RelativeLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

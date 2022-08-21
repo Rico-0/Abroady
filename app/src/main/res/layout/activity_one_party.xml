@@ -49,7 +49,7 @@
             android:id="@+id/menubar_line"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin1"
-            android:background="@color/line"
+            android:background="@color/darkgray_ham"
             app:layout_constraintBottom_toTopOf="@+id/party_post_scroll"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/one_party_toolbar" />
@@ -96,7 +96,7 @@
                         android:fontFamily="@font/notosanskr_medium"
                         android:includeFontPadding="false"
                         android:text="Donald Duck"
-                        android:textColor="@color/dark"
+                        android:textColor="@color/letter"
                         android:textSize="@dimen/dimen15" />
 
                     <TextView
@@ -108,7 +108,7 @@
                         android:layout_marginRight="@dimen/margin20"
                         android:fontFamily="@font/notosanskr_regular"
                         android:text="16:37"
-                        android:textColor="@color/line" />
+                        android:textColor="@color/darkgray_ham" />
 
                 </RelativeLayout>
 
@@ -165,7 +165,7 @@
                         android:fontFamily="@font/notosanskr_regular"
                         android:includeFontPadding="false"
                         android:text="Inviting you to my hidden place.\nCome and enjoy with me!"
-                        android:textColor="@color/dark"
+                        android:textColor="@color/letter"
                         android:textSize="@dimen/dimen15"
                         app:layout_constraintStart_toStartOf="@id/party_available"
                         app:layout_constraintTop_toBottomOf="@+id/party_available" />
@@ -203,7 +203,7 @@
                                 android:fontFamily="@font/notosanskr_regular"
                                 android:includeFontPadding="false"
                                 android:text="6/28 17:30"
-                                android:textColor="@color/dark"
+                                android:textColor="@color/letter"
                                 android:textSize="@dimen/dimen15" />
 
                         </RelativeLayout>
@@ -232,7 +232,7 @@
                                 android:fontFamily="@font/notosanskr_regular"
                                 android:includeFontPadding="false"
                                 android:text="Sinchon"
-                                android:textColor="@color/dark"
+                                android:textColor="@color/letter"
                                 android:textSize="@dimen/dimen15" />
 
                         </RelativeLayout>
@@ -261,7 +261,7 @@
                                 android:fontFamily="@font/notosanskr_regular"
                                 android:includeFontPadding="false"
                                 android:text="3/4 participating"
-                                android:textColor="@color/dark"
+                                android:textColor="@color/letter"
                                 android:textSize="@dimen/dimen15" />
 
                             <RelativeLayout
@@ -280,7 +280,7 @@
                                     android:fontFamily="@font/notosanskr_regular"
                                     android:includeFontPadding="false"
                                     android:text="@string/see_participants"
-                                    android:textColor="@color/line"
+                                    android:textColor="@color/darkgray_ham"
                                     android:textSize="@dimen/dimen12" />
 
                                 <ImageView
@@ -322,7 +322,7 @@
                             android:fontFamily="@font/notosanskr_regular"
                             android:includeFontPadding="false"
                             android:text="Donburi Mono"
-                            android:textColor="@color/dark"
+                            android:textColor="@color/letter"
                             android:textSize="@dimen/dimen12" />
 
                         <TextView
@@ -334,7 +334,7 @@
                             android:fontFamily="@font/notosanskr_regular"
                             android:includeFontPadding="false"
                             android:text="46, Yeonsei-ro 4-git, Seodaemun-gu, Seoul"
-                            android:textColor="@color/line"
+                            android:textColor="@color/darkgray_ham"
                             android:textSize="@dimen/dimen10" />
 
                     </FrameLayout>
@@ -382,7 +382,7 @@
                                 android:fontFamily="@font/notosanskr_medium"
                                 android:includeFontPadding="false"
                                 android:text="@string/like"
-                                android:textColor="@color/dark"
+                                android:textColor="@color/letter"
                                 android:textSize="@dimen/dimen12" />
 
                         </RelativeLayout>
@@ -411,7 +411,7 @@
                                 android:fontFamily="@font/notosanskr_medium"
                                 android:includeFontPadding="false"
                                 android:text="@string/comment"
-                                android:textColor="@color/dark"
+                                android:textColor="@color/letter"
                                 android:textSize="@dimen/dimen12" />
 
                         </RelativeLayout>
@@ -459,7 +459,7 @@
                         android:layout_toRightOf="@+id/comment_default_icon"
                         android:fontFamily="@font/notosanskr_medium"
                         android:text="@string/default_comment"
-                        android:textColor="@color/dark"
+                        android:textColor="@color/letter"
                         android:textSize="@dimen/dimen12" />
 
                     <ImageView
@@ -481,7 +481,7 @@
                         android:layout_toRightOf="@+id/comment_recent_icon"
                         android:fontFamily="@font/notosanskr_medium"
                         android:text="@string/recent_comment"
-                        android:textColor="@color/line"
+                        android:textColor="@color/darkgray_ham"
                         android:textSize="@dimen/dimen12" />
 
 
@@ -526,14 +526,14 @@
                 android:id="@+id/menubar_line_2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin1"
-                android:background="@color/line" />
+                android:background="@color/darkgray_ham" />
 
             <TextView
                 android:id="@+id/party_participate_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@drawable/button_square_long_colored"
+                android:background="@drawable/button_square_long_colored_light"
                 android:fontFamily="@font/notosanskr_medium"
                 android:gravity="center"
                 android:text="@string/participate"

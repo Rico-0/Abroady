@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.reve.abroady.R
 import com.reve.abroady.databinding.ActivityStartBinding
-import com.reve.abroady.presentation.login.LoginSelectActivity
+import com.reve.abroady.presentation.login.activity.LoginActivity
 
 class StartActivity : AppCompatActivity() {
 
@@ -21,7 +21,7 @@ class StartActivity : AppCompatActivity() {
         val handler = object : Handler(Looper.getMainLooper()) {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
-                startActivity(Intent(this@StartActivity, LoginSelectActivity::class.java))
+                startActivity(Intent(this@StartActivity, LoginActivity::class.java))
                 finish()
             }
         }

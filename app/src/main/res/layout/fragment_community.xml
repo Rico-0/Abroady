@@ -69,7 +69,7 @@
             android:id="@+id/hr_1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin1"
-            android:textColor="@color/line"
+            android:textColor="@color/darkgray_ham"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/community_toolbar_layout"
             app:layout_constraintBottom_toTopOf="@+id/community_content_root"/>
@@ -120,7 +120,7 @@
                         android:gravity="center"
                         android:includeFontPadding="false"
                         android:text="@string/hot"
-                        android:textColor="@color/line"
+                        android:textColor="@color/darkgray_ham"
                         android:textSize="@dimen/dimen12" />
 
                 </LinearLayout>

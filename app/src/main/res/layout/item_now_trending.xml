@@ -18,7 +18,7 @@
             android:includeFontPadding="false"
             android:padding="3dp"
             android:text="Random"
-            android:textColor="@color/line"
+            android:textColor="@color/darkgray_ham"
             android:textSize="@dimen/dimen10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +49,7 @@
                 android:fontFamily="@font/notosanskr_medium"
                 android:includeFontPadding="false"
                 android:text="Daisy Duck"
-                android:textColor="@color/dark"
+                android:textColor="@color/black_letter"
                 android:textSize="@dimen/dimen12" />
 
             <TextView
@@ -61,7 +61,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="10:09"
-                android:textColor="@color/line"
+                android:textColor="@color/darkgray_ham"
                 android:textSize="@dimen/dimen13" />
 
         </RelativeLayout>
@@ -74,7 +74,7 @@
             android:fontFamily="@font/notosanskr_medium"
             android:includeFontPadding="false"
             android:text="Dear Professor"
-            android:textColor="@color/dark"
+            android:textColor="@color/black_letter"
             android:textSize="@dimen/dimen15"
             app:layout_constraintStart_toStartOf="@id/now_trending_user_layout"
             app:layout_constraintTop_toBottomOf="@+id/now_trending_user_layout" />
@@ -117,7 +117,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="19"
-                android:textColor="@color/line"
+                android:textColor="@color/darkgray_ham"
                 android:textSize="@dimen/dimen10" />
 
             <ImageView
@@ -139,7 +139,7 @@
                 android:fontFamily="@font/notosanskr_regular"
                 android:includeFontPadding="false"
                 android:text="7"
-                android:textColor="@color/line"
+                android:textColor="@color/darkgray_ham"
                 android:textSize="@dimen/dimen10" />
 
         </RelativeLayout>

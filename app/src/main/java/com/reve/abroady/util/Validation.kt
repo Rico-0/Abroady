@@ -17,7 +17,7 @@ object Validation {
 
     // 비밀번호 유효성 검사
     fun isPasswordValid(password : String) : Boolean {
-        val pwRegex =  "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*#?&.])[A-Za-z[0-9]$@$!%*#?&.]{8,20}$" // 8 ~ 20자리 사이의 비밀번호. 영문, 숫자, 특수문자 포함
+        val pwRegex =  "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$+^=!_%*#-?&.])[A-Za-z[0-9]-$@$+!^_%*#?=&.]{8,20}$" // 8 ~ 20자리 사이의 비밀번호. 영문, 숫자, 특수문자 포함
         return !password.isNullOrEmpty() && Pattern.matches(pwRegex, password)
     }
 

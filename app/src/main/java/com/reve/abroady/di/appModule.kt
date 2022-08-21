@@ -1,6 +1,7 @@
 package com.reve.abroady.di
 
 import com.reve.abroady.presentation.login.loginviewmodel.FireBaseLoginViewModel
+import com.reve.abroady.presentation.login.loginviewmodel.TermsOfServiceViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.dsl.module
 
@@ -10,6 +11,7 @@ internal val appModule = module {
 
     //뷰모델
     single { FireBaseLoginViewModel() }
+    single { TermsOfServiceViewModel() }
 
     //유스케이스
 

@@ -10,34 +10,29 @@
         android:name="com.reve.abroady.presentation.base.ApplicationClass"
         android:allowBackup="false"
         android:icon="@drawable/logo_abroady"
-        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo_abroady"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Abroady">
-        <!-- 안드로이드 12 타겟팅 시 필수
+        android:theme="@style/Theme.Abroady"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name=".presentation.login.activity.LoginActivity" />
+        <!--
+         안드로이드 12 타겟팅 시 필수
         <activity android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
-            android:exported="true" /> -->
-
+            android:exported="true" />
+        -->
         <!-- Post -->
-        <activity android:name=".presentation.community.WritePostActivity" />
-
-        <!-- Party -->
-        <activity android:name=".presentation.community.OnePartyActivity"/>
-
-        <!-- Sign In & Up -->
+        <activity android:name=".presentation.community.WritePostActivity" /> <!-- Party -->
+        <activity android:name=".presentation.community.OnePartyActivity" /> <!-- Sign In & Up -->
         <activity android:name=".presentation.login.SignUpActivity" />
         <activity android:name=".presentation.login.SignInActivity" />
-        <activity android:name=".presentation.login.TmpSignInActivity" />
-        <activity android:name=".presentation.login.TmpSignUpActivity" />
-
-        <!-- Board -->
+        <activity android:name=".presentation.login.TmpSignUpActivity" /> <!-- Board -->
         <activity android:name=".presentation.community.MakeNewBoardActivity" />
         <activity android:name=".presentation.community.SearchBoardActivity" />
         <activity android:name=".presentation.community.BoardsEditActivity" />
         <activity android:name=".presentation.community.BoardsActivity" />
         <activity android:name=".presentation.community.BoardActivity" />
-
         <activity
             android:name=".presentation.start.StartActivity"
             android:exported="true">
@@ -47,29 +42,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
+      <!--  <activity
             android:name=".presentation.login.LoginSelectActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+               Redirect URI: "kakao{NATIVE_APP_KEY}://oauth"
                 <data
                     android:host="oauth"
                     android:scheme="kakao{@string/kakao_native_key}" />
             </intent-filter>
-        </activity>
-
+        </activity> -->
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/google_admob_app_id"/>
+            android:value="@string/google_admob_app_id" />
     </application>
 
 </manifest>
